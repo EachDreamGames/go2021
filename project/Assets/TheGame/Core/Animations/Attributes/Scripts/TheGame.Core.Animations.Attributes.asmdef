@@ -1,0 +1,16 @@
+{
+    "name": "TheGame.Core.Animations.Attributes",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d77690060cbab474da0e23d8b1e81d82"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
