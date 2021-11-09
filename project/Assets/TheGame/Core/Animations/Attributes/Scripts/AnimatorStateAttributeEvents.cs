@@ -8,10 +8,10 @@ namespace TheGame.Core.Animations.Attributes
     [SerializeField] private UnityEvent _onActivate;
     [SerializeField] private UnityEvent _onDeactivate;
 
-    protected override void OnActivate() =>
+    protected override void OnStateActivate() =>
       _onActivate?.Invoke();
 
-    protected override void OnDeactivate() =>
+    protected override void OnStateDeactivate() =>
       _onDeactivate?.Invoke();
   }
 }

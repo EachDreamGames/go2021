@@ -8,22 +8,22 @@ namespace TheGame.Core.Animations.Attributes
     [SerializeField] private AnimatorStateAttribute _stateAttribute;
 
     private AnimatorExtensions.Attributes _attributes;
-    private bool _isActive;
+    private bool _isStateActive;
 
     protected Animator Animator => _animator;
 
-    public bool IsActive
+    public bool IsStateActive
     {
-      get => _isActive;
+      get => _isStateActive;
       private set
       {
-        if (value == _isActive) return;
+        if (value == _isStateActive) return;
 
-        _isActive = value;
-        if (_isActive)
-          OnActivate();
+        _isStateActive = value;
+        if (_isStateActive)
+          OnStateActivate();
         else
-          OnDeactivate();
+          OnStateDeactivate();
       }
     }
 
@@ -32,27 +32,27 @@ namespace TheGame.Core.Animations.Attributes
 
     protected virtual void OnEnable()
     {
-      IsActive = _attributes.IsActive(_stateAttribute);
+      IsStateActive = _attributes.IsActive(_stateAttribute);
       _attributes.OnChanged += AttributesChanged;
     }
 
     protected virtual void OnDisable()
     {
-      IsActive = false;
+      IsStateActive = false;
       _attributes.OnChanged -= AttributesChanged;
     }
 
     protected virtual void FixedUpdate()
     {
-      if (IsActive)
+      if (IsStateActive)
         OnStateUpdate();
     }
 
-    protected virtual void OnActivate()
+    protected virtual void OnStateActivate()
     {
     }
 
-    protected virtual void OnDeactivate()
+    protected virtual void OnStateDeactivate()
     {
     }
 
@@ -63,7 +63,7 @@ namespace TheGame.Core.Animations.Attributes
     private void AttributesChanged(AnimatorStateAttribute attribute, bool isActive)
     {
       if (attribute == _stateAttribute)
-        IsActive = isActive;
+        IsStateActive = isActive;
     }
   }
 }

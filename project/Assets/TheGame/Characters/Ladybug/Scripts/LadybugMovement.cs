@@ -10,7 +10,7 @@ namespace TheGame.Characters.Ladybug
     [SerializeField] private IntAnimatorParameter _direction;
     [SerializeField] private FloatAnimatorParameter _speed;
 
-    protected override void OnDeactivate() =>
+    protected override void OnStateDeactivate() =>
       _body.velocity = Vector2.zero;
 
     protected override void OnStateUpdate() =>

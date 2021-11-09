@@ -11,10 +11,10 @@ namespace TheGame.GameScreens
     private GameObject _instance;
     private GameObject Instance => _instance ? _instance : _instance = MakeInstance();
 
-    protected override void OnActivate() =>
+    protected override void OnStateActivate() =>
       Instance.SetActive(true);
 
-    protected override void OnDeactivate()
+    protected override void OnStateDeactivate()
     {
       Instance.SetActive(false);
       if (!_mustUnload) return;
