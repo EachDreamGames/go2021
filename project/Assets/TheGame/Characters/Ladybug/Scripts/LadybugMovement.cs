@@ -11,7 +11,7 @@ namespace TheGame.Characters.Ladybug
     [SerializeField] private FloatAnimatorParameter _speed;
 
     protected override void OnStateDeactivate() =>
-      _body.velocity = Vector2.zero;
+      _body.velocity = new Vector2(0, _body.velocity.y);
 
     protected override void OnStateUpdate() =>
       _body.velocity = new Vector2(Animator.GetValue(_speed) * Animator.GetValue(_direction), _body.velocity.y);
