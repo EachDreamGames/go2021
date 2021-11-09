@@ -25,6 +25,14 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""7295aadc-5c46-42e5-a492-7d2b075f3a30"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -159,6 +167,28 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""action"": ""Walk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bb271269-f1e5-4d49-8567-5303feec0c3f"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e32ab10a-9ea7-48ad-bb89-17aad0b9730c"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -168,6 +198,7 @@ public class @InputControls : IInputActionCollection, IDisposable
         // Ladybug
         m_Ladybug = asset.FindActionMap("Ladybug", throwIfNotFound: true);
         m_Ladybug_Walk = m_Ladybug.FindAction("Walk", throwIfNotFound: true);
+        m_Ladybug_Jump = m_Ladybug.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -218,11 +249,13 @@ public class @InputControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Ladybug;
     private ILadybugActions m_LadybugActionsCallbackInterface;
     private readonly InputAction m_Ladybug_Walk;
+    private readonly InputAction m_Ladybug_Jump;
     public struct LadybugActions
     {
         private @InputControls m_Wrapper;
         public LadybugActions(@InputControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Walk => m_Wrapper.m_Ladybug_Walk;
+        public InputAction @Jump => m_Wrapper.m_Ladybug_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Ladybug; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -235,6 +268,9 @@ public class @InputControls : IInputActionCollection, IDisposable
                 @Walk.started -= m_Wrapper.m_LadybugActionsCallbackInterface.OnWalk;
                 @Walk.performed -= m_Wrapper.m_LadybugActionsCallbackInterface.OnWalk;
                 @Walk.canceled -= m_Wrapper.m_LadybugActionsCallbackInterface.OnWalk;
+                @Jump.started -= m_Wrapper.m_LadybugActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_LadybugActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_LadybugActionsCallbackInterface.OnJump;
             }
             m_Wrapper.m_LadybugActionsCallbackInterface = instance;
             if (instance != null)
@@ -242,6 +278,9 @@ public class @InputControls : IInputActionCollection, IDisposable
                 @Walk.started += instance.OnWalk;
                 @Walk.performed += instance.OnWalk;
                 @Walk.canceled += instance.OnWalk;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
             }
         }
     }
@@ -249,5 +288,6 @@ public class @InputControls : IInputActionCollection, IDisposable
     public interface ILadybugActions
     {
         void OnWalk(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }

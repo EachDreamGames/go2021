@@ -10,6 +10,7 @@ namespace TheGame.Characters.Ladybug
     [SerializeField] private Animator _animator;
     [SerializeField] private IntAnimatorParameter _movementDirectionParameter;
     [SerializeField] private FloatAnimatorParameter _movementSpeedParameter;
+    [SerializeField] private TriggerAnimatorParameter _shouldJumpParameter;
     [SerializeField] private float _movementSpeed;
 
     private InputControls _inputControls;
@@ -41,6 +42,25 @@ namespace TheGame.Characters.Ladybug
         case InputActionPhase.Waiting:
         case InputActionPhase.Canceled:
           _animator.SetValue(_movementDirectionParameter, 0);
+          break;
+        default:
+          throw new ArgumentOutOfRangeException();
+      }
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+      switch (context.phase)
+      {
+        case InputActionPhase.Started:
+          _animator.SetTrigger(_shouldJumpParameter);
+          break;
+        case InputActionPhase.Performed:
+          break;
+        case InputActionPhase.Disabled:
+        case InputActionPhase.Waiting:
+        case InputActionPhase.Canceled:
+          _animator.ResetTrigger(_shouldJumpParameter);
           break;
         default:
           throw new ArgumentOutOfRangeException();
