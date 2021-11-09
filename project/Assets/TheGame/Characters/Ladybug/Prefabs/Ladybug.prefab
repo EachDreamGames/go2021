@@ -148,6 +148,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   _collider: {fileID: 8509251096045545738}
+  _xPadding: 0.1
 --- !u!1 &2043742629
 GameObject:
   m_ObjectHideFlags: 0
