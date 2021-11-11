@@ -7,9 +7,13 @@ namespace TheGame.Characters.Ladybug
   {
     [SerializeField] private Rigidbody2D _body;
     [SerializeField] private float _height;
+    [SerializeField] private bool _compensateFallingSpeed;
 
     protected override void OnStateActivate()
     {
+      if (_compensateFallingSpeed && _body.velocity.y < 0)
+        _body.velocity = new Vector2(_body.velocity.x, 0);
+
       float gravityCompensationImpulse = -CalculateGravityForce() * Time.fixedDeltaTime;
       float jumpImpulse = gravityCompensationImpulse + 2 * _height / CalculateFreeFallTime() * _body.mass;
       _body.AddForce(Vector2.up * jumpImpulse, ForceMode2D.Impulse);
