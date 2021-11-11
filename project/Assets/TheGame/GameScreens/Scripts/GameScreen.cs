@@ -1,32 +1,36 @@
-﻿using TheGame.Core.Animations.Attributes;
+﻿using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace TheGame.GameScreens
 {
-  public class GameScreen : AnimatorStateAttributeBehaviour
+  public class GameScreen : MonoBehaviour, InputControls.IMenuActions
   {
-    [SerializeField] private GameObject _prefab;
-    [SerializeField] private bool _mustUnload;
+    private InputControls _inputControls;
 
-    private GameObject _instance;
-    private GameObject Instance => _instance ? _instance : _instance = MakeInstance();
+    public event Action OnAnyKey;
+    public event Action OnClose;
 
-    protected override void OnStateActivate() =>
-      Instance.SetActive(true);
-
-    protected override void OnStateDeactivate()
+    private void Awake()
     {
-      Instance.SetActive(false);
-      if (!_mustUnload) return;
-
-      Destroy(_instance);
+      _inputControls = new InputControls();
+      _inputControls.Menu.SetCallbacks(this);
     }
 
-    private GameObject MakeInstance()
+    private void OnEnable() =>
+      _inputControls.Enable();
+
+    private void OnDisable() =>
+      _inputControls.Disable();
+
+    void InputControls.IMenuActions.OnAnyKey(InputAction.CallbackContext context)
     {
-      GameObject instance = Instantiate(_prefab, transform, true);
-      instance.name = nameof(Instance);
-      return instance;
+      OnAnyKey?.Invoke();
+    }
+
+    void InputControls.IMenuActions.OnClose(InputAction.CallbackContext context)
+    {
+      OnClose?.Invoke();
     }
   }
 }

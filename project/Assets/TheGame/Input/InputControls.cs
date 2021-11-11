@@ -191,6 +191,85 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Menu"",
+            ""id"": ""e41334ea-6c93-4ede-b4c5-6b43235a85da"",
+            ""actions"": [
+                {
+                    ""name"": ""AnyKey"",
+                    ""type"": ""Button"",
+                    ""id"": ""e4c4aa4d-3964-4719-bfae-46f48160b4e4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Close"",
+                    ""type"": ""Button"",
+                    ""id"": ""b3b3914a-c0c9-4d82-b602-2e01bf923d34"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""03be062b-0153-424f-a753-c6cb796ac849"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AnyKey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0354f9ca-32e6-4bb3-9373-ccc81227f89b"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AnyKey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5bd9a025-5f86-4a4f-9bd7-f3ee62e50147"",
+                    ""path"": ""<Mouse>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AnyKey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""717d9212-0199-4739-878e-bf8c1d7fb8bf"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Close"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""125ec8d5-0e57-47fa-b4b9-963fdee131c4"",
+                    ""path"": ""<XInputController>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Close"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -199,6 +278,10 @@ public class @InputControls : IInputActionCollection, IDisposable
         m_Ladybug = asset.FindActionMap("Ladybug", throwIfNotFound: true);
         m_Ladybug_Walk = m_Ladybug.FindAction("Walk", throwIfNotFound: true);
         m_Ladybug_Jump = m_Ladybug.FindAction("Jump", throwIfNotFound: true);
+        // Menu
+        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
+        m_Menu_AnyKey = m_Menu.FindAction("AnyKey", throwIfNotFound: true);
+        m_Menu_Close = m_Menu.FindAction("Close", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -285,9 +368,55 @@ public class @InputControls : IInputActionCollection, IDisposable
         }
     }
     public LadybugActions @Ladybug => new LadybugActions(this);
+
+    // Menu
+    private readonly InputActionMap m_Menu;
+    private IMenuActions m_MenuActionsCallbackInterface;
+    private readonly InputAction m_Menu_AnyKey;
+    private readonly InputAction m_Menu_Close;
+    public struct MenuActions
+    {
+        private @InputControls m_Wrapper;
+        public MenuActions(@InputControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @AnyKey => m_Wrapper.m_Menu_AnyKey;
+        public InputAction @Close => m_Wrapper.m_Menu_Close;
+        public InputActionMap Get() { return m_Wrapper.m_Menu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
+        public void SetCallbacks(IMenuActions instance)
+        {
+            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
+            {
+                @AnyKey.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnAnyKey;
+                @AnyKey.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnAnyKey;
+                @AnyKey.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnAnyKey;
+                @Close.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnClose;
+                @Close.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnClose;
+                @Close.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnClose;
+            }
+            m_Wrapper.m_MenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @AnyKey.started += instance.OnAnyKey;
+                @AnyKey.performed += instance.OnAnyKey;
+                @AnyKey.canceled += instance.OnAnyKey;
+                @Close.started += instance.OnClose;
+                @Close.performed += instance.OnClose;
+                @Close.canceled += instance.OnClose;
+            }
+        }
+    }
+    public MenuActions @Menu => new MenuActions(this);
     public interface ILadybugActions
     {
         void OnWalk(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+    }
+    public interface IMenuActions
+    {
+        void OnAnyKey(InputAction.CallbackContext context);
+        void OnClose(InputAction.CallbackContext context);
     }
 }

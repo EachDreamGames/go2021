@@ -1,10 +1,7 @@
 {
-    "name": "TheGame.Management.GameController",
+    "name": "TheGame.Input",
     "rootNamespace": "",
     "references": [
-        "GUID:20b3aa900cf88144295e1c38e1cc194f",
-        "GUID:4a3865cf4d0f90f47bca6ce6486c3e55",
-        "GUID:98dc8835bc30c4e4a9304989b15432d0",
         "GUID:75469ad4d38634e559750d17036d5f7c"
     ],
     "includePlatforms": [],
