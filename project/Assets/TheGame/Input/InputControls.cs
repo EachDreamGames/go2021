@@ -193,7 +193,7 @@ public class @InputControls : IInputActionCollection, IDisposable
             ]
         },
         {
-            ""name"": ""Menu"",
+            ""name"": ""GameController"",
             ""id"": ""e41334ea-6c93-4ede-b4c5-6b43235a85da"",
             ""actions"": [
                 {
@@ -278,10 +278,10 @@ public class @InputControls : IInputActionCollection, IDisposable
         m_Ladybug = asset.FindActionMap("Ladybug", throwIfNotFound: true);
         m_Ladybug_Walk = m_Ladybug.FindAction("Walk", throwIfNotFound: true);
         m_Ladybug_Jump = m_Ladybug.FindAction("Jump", throwIfNotFound: true);
-        // Menu
-        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
-        m_Menu_AnyKey = m_Menu.FindAction("AnyKey", throwIfNotFound: true);
-        m_Menu_Close = m_Menu.FindAction("Close", throwIfNotFound: true);
+        // GameController
+        m_GameController = asset.FindActionMap("GameController", throwIfNotFound: true);
+        m_GameController_AnyKey = m_GameController.FindAction("AnyKey", throwIfNotFound: true);
+        m_GameController_Close = m_GameController.FindAction("Close", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -369,34 +369,34 @@ public class @InputControls : IInputActionCollection, IDisposable
     }
     public LadybugActions @Ladybug => new LadybugActions(this);
 
-    // Menu
-    private readonly InputActionMap m_Menu;
-    private IMenuActions m_MenuActionsCallbackInterface;
-    private readonly InputAction m_Menu_AnyKey;
-    private readonly InputAction m_Menu_Close;
-    public struct MenuActions
+    // GameController
+    private readonly InputActionMap m_GameController;
+    private IGameControllerActions m_GameControllerActionsCallbackInterface;
+    private readonly InputAction m_GameController_AnyKey;
+    private readonly InputAction m_GameController_Close;
+    public struct GameControllerActions
     {
         private @InputControls m_Wrapper;
-        public MenuActions(@InputControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @AnyKey => m_Wrapper.m_Menu_AnyKey;
-        public InputAction @Close => m_Wrapper.m_Menu_Close;
-        public InputActionMap Get() { return m_Wrapper.m_Menu; }
+        public GameControllerActions(@InputControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @AnyKey => m_Wrapper.m_GameController_AnyKey;
+        public InputAction @Close => m_Wrapper.m_GameController_Close;
+        public InputActionMap Get() { return m_Wrapper.m_GameController; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
-        public void SetCallbacks(IMenuActions instance)
+        public static implicit operator InputActionMap(GameControllerActions set) { return set.Get(); }
+        public void SetCallbacks(IGameControllerActions instance)
         {
-            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
+            if (m_Wrapper.m_GameControllerActionsCallbackInterface != null)
             {
-                @AnyKey.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnAnyKey;
-                @AnyKey.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnAnyKey;
-                @AnyKey.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnAnyKey;
-                @Close.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnClose;
-                @Close.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnClose;
-                @Close.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnClose;
+                @AnyKey.started -= m_Wrapper.m_GameControllerActionsCallbackInterface.OnAnyKey;
+                @AnyKey.performed -= m_Wrapper.m_GameControllerActionsCallbackInterface.OnAnyKey;
+                @AnyKey.canceled -= m_Wrapper.m_GameControllerActionsCallbackInterface.OnAnyKey;
+                @Close.started -= m_Wrapper.m_GameControllerActionsCallbackInterface.OnClose;
+                @Close.performed -= m_Wrapper.m_GameControllerActionsCallbackInterface.OnClose;
+                @Close.canceled -= m_Wrapper.m_GameControllerActionsCallbackInterface.OnClose;
             }
-            m_Wrapper.m_MenuActionsCallbackInterface = instance;
+            m_Wrapper.m_GameControllerActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @AnyKey.started += instance.OnAnyKey;
@@ -408,13 +408,13 @@ public class @InputControls : IInputActionCollection, IDisposable
             }
         }
     }
-    public MenuActions @Menu => new MenuActions(this);
+    public GameControllerActions @GameController => new GameControllerActions(this);
     public interface ILadybugActions
     {
         void OnWalk(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
     }
-    public interface IMenuActions
+    public interface IGameControllerActions
     {
         void OnAnyKey(InputAction.CallbackContext context);
         void OnClose(InputAction.CallbackContext context);

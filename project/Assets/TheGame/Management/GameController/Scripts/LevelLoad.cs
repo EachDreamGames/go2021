@@ -3,7 +3,7 @@ using TheGame.Core.Animations.Parameters;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace TheGame.Management.GameController.Scripts
+namespace TheGame.Management.GameController
 {
   public class LevelLoad : AnimatorStateAttributeBehaviour
   {

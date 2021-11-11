@@ -3,7 +3,7 @@ using TheGame.Levels.Scripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace TheGame.Management.GameController.Scripts
+namespace TheGame.Management.GameController
 {
   public class GameLoop : AnimatorStateAttributeBehaviour
   {

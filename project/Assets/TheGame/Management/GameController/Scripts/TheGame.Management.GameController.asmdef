@@ -1,11 +1,13 @@
 {
-    "name": "TheGame.GameScreens",
+    "name": "TheGame.Management.GameController",
     "rootNamespace": "",
     "references": [
+        "GUID:98dc8835bc30c4e4a9304989b15432d0",
+        "GUID:75469ad4d38634e559750d17036d5f7c",
         "GUID:20b3aa900cf88144295e1c38e1cc194f",
         "GUID:4a3865cf4d0f90f47bca6ce6486c3e55",
-        "GUID:98dc8835bc30c4e4a9304989b15432d0",
-        "GUID:75469ad4d38634e559750d17036d5f7c"
+        "GUID:352074b3cc51f154a85eab924cbbdad7",
+        "GUID:1f9e2748950127a45862456f61639c11"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

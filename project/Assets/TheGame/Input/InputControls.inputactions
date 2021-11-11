@@ -180,7 +180,7 @@
             ]
         },
         {
-            "name": "Menu",
+            "name": "GameController",
             "id": "e41334ea-6c93-4ede-b4c5-6b43235a85da",
             "actions": [
                 {
