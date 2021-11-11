@@ -234,6 +234,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 350835828, guid: 98bfeab9b43e46e4cb589c780065c4fd, type: 3}
+      propertyPath: _audioListener
+      value: 
+      objectReference: {fileID: 139760230}
     - target: {fileID: 1146827222162820124, guid: 98bfeab9b43e46e4cb589c780065c4fd, type: 3}
       propertyPath: m_Name
       value: GameController

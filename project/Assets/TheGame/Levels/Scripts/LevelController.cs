@@ -1,23 +1,50 @@
+using System;
 using UnityEngine;
 
 namespace TheGame.Levels.Scripts
 {
   public class LevelController : MonoBehaviour
   {
-    private State _state;
+    [SerializeField] private AudioListener _audioListener;
 
-    public bool IsLevelStarted => _state != State.None;
+    private LevelState _state;
 
-    public void LevelPause() => 
-      _state = State.Paused;
+    private LevelState State
+    {
+      get => _state;
+      set
+      {
+        if (value == _state) return;
+        _state = value;
 
-    public void LevelResume() => 
-      _state = State.Started;
+        switch (_state)
+        {
+          case LevelState.None:
+            break;
+          case LevelState.Started:
+            _audioListener.enabled = true;
+            break;
+          case LevelState.Paused:
+            _audioListener.enabled = false;
+            break;
+          default:
+            throw new ArgumentOutOfRangeException();
+        }
+      }
+    }
 
-    public void LevelStart() => 
-      _state = State.Started;
+    public bool IsLevelStarted => State != LevelState.None;
 
-    private enum State
+    public void LevelPause() =>
+      State = LevelState.Paused;
+
+    public void LevelResume() =>
+      State = LevelState.Started;
+
+    public void LevelStart() =>
+      State = LevelState.Started;
+
+    private enum LevelState
     {
       None,
       Started,
