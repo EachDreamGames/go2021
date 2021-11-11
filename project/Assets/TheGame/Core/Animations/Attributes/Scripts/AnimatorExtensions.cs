@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TheGame.Core.Common.Utils;
 using UnityEngine;
@@ -16,11 +17,15 @@ namespace TheGame.Core.Animations.Attributes
 
       private readonly Dictionary<AnimatorStateAttribute, int> _counters = new Dictionary<AnimatorStateAttribute, int>();
       private readonly Dictionary<AnimatorStateAttribute, int> _prevCounters = new Dictionary<AnimatorStateAttribute, int>();
+      private Animator _animator;
 
       public event StateAttributeChangedEvent OnChanged;
 
-      private void Start() =>
-        StartCoroutine(UpdateAttributes());
+      private void Start()
+      {
+        _animator = GetComponent<Animator>();
+        StartCoroutine(UpdateAttributes(_animator.updateMode));
+      }
 
       private void OnDestroy() =>
         StopAllCoroutines();
@@ -39,11 +44,17 @@ namespace TheGame.Core.Animations.Attributes
       public bool IsActive(AnimatorStateAttribute attribute) =>
         _counters.TryGetValue(attribute, out int count) && count > 0;
 
-      private IEnumerator UpdateAttributes()
+      private IEnumerator UpdateAttributes(AnimatorUpdateMode animatorUpdateMode)
       {
         while (enabled)
         {
-          yield return new WaitForFixedUpdate();
+          yield return animatorUpdateMode switch
+          {
+            AnimatorUpdateMode.Normal => null,
+            AnimatorUpdateMode.AnimatePhysics => new WaitForFixedUpdate(),
+            AnimatorUpdateMode.UnscaledTime => new WaitForEndOfFrame(),
+            _ => throw new ArgumentOutOfRangeException(nameof(animatorUpdateMode), animatorUpdateMode, null)
+          };
 
           foreach (KeyValuePair<AnimatorStateAttribute, int> pair in _counters)
           {
