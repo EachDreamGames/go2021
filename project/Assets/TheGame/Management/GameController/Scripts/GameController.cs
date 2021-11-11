@@ -10,8 +10,13 @@ namespace TheGame.Management.GameController
     [SerializeField] private Animator _animator;
     [SerializeField] private TriggerAnimatorParameter _inputAnyKeyParameter;
     [SerializeField] private TriggerAnimatorParameter _inputCloseParameter;
-    
-    
+    [SerializeField] private TriggerAnimatorParameter _shouldStartNewGameParameter;
+    [SerializeField] private TriggerAnimatorParameter _shouldContinueGameParameter;
+    [SerializeField] private TriggerAnimatorParameter _shouldShowSettingsParameter;
+    [SerializeField] private TriggerAnimatorParameter _shouldShowHelpParameter;
+    [SerializeField] private TriggerAnimatorParameter _shouldShowCreditsParameter;
+    [SerializeField] private TriggerAnimatorParameter _shouldExitGameParameter;
+
     private InputControls _inputControls;
 
     private void Awake()
@@ -25,6 +30,24 @@ namespace TheGame.Management.GameController
 
     private void OnDisable() =>
       _inputControls.Disable();
+
+    public void StartNewGame() =>
+      _animator.SetTrigger(_shouldStartNewGameParameter);
+
+    public void ContinueGame() =>
+      _animator.SetTrigger(_shouldContinueGameParameter);
+
+    public void ShowSettings() =>
+      _animator.SetTrigger(_shouldShowSettingsParameter);
+
+    public void ShowHelp() =>
+      _animator.SetTrigger(_shouldShowHelpParameter);
+
+    public void ShowCredits() =>
+      _animator.SetTrigger(_shouldShowCreditsParameter);
+
+    public void ExitGame() =>
+      _animator.SetTrigger(_shouldExitGameParameter);
 
     public void OnAnyKey(InputAction.CallbackContext context)
     {

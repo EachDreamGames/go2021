@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f9404e37a6d315498f76b8dd83cf3d6, type: 3}
-  m_Name: Game-ShouldOpenMainMenu-Param
+  m_Script: {fileID: 11500000, guid: 248c4e63a00cf0a43ba0fc6db09c03ad, type: 3}
+  m_Name: Game-InGameMenu
   m_EditorClassIdentifier: 
-  _name: shouldOpenMainMenu
