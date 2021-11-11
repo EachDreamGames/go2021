@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: -8177953530628294582}
   _stateAttribute: {fileID: 11400000, guid: 0ac8f099dcf9af349b137279eedda5aa, type: 2}
+  _audioListener: {fileID: 0}
 --- !u!1 &588548128
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,8 +129,72 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: -8177953530628294582}
   _stateAttribute: {fileID: 11400000, guid: e78c4c1010a434d428be76ef4f95324b, type: 2}
-  _prefab: {fileID: 7168962590753045210, guid: df76003ad05060b4eb27636f2dd94b7f, type: 3}
+  _prefab: {fileID: 5954773983942820166, guid: df76003ad05060b4eb27636f2dd94b7f, type: 3}
   _mustUnload: 1
+  _onAnyKey:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1106847171}
+        m_TargetAssemblyTypeName: TheGame.Core.Animations.Parameters.TriggerAnimatorParameterAccess,
+          TheGame.Core.Animations.Parameters
+        m_MethodName: SetTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onClose:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1 &1106847169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1106847170}
+  - component: {fileID: 1106847171}
+  m_Layer: 0
+  m_Name: ShouldOpenMainMenu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1106847170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106847169}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1661974051}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1106847171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106847169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e6e9fa201ef47fb94824d20adef63fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: -8177953530628294582}
+  _parameter: {fileID: 11400000, guid: 24788f128050c2444b9f1bb0703bea5f, type: 2}
 --- !u!1 &1134538081
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,8 +240,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: -8177953530628294582}
   _stateAttribute: {fileID: 11400000, guid: 0bd1229638057154d858f29bf30bf3c3, type: 2}
-  _prefab: {fileID: 8972556286606494318, guid: 18e0ffd21c9f1b84c8b99b8cef3b9f7c, type: 3}
+  _prefab: {fileID: 4554835681659125485, guid: 18e0ffd21c9f1b84c8b99b8cef3b9f7c, type: 3}
   _mustUnload: 0
+  _onAnyKey:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1106847171}
+        m_TargetAssemblyTypeName: TheGame.Core.Animations.Parameters.TriggerAnimatorParameterAccess,
+          TheGame.Core.Animations.Parameters
+        m_MethodName: SetTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onClose:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1307148162
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,8 +306,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: -8177953530628294582}
   _stateAttribute: {fileID: 11400000, guid: b1ef31f5e671d664485fbf2e05807e76, type: 2}
-  _prefab: {fileID: 1336733517456657205, guid: e3fca9e1950c5e74d8d35d60cbf9d134, type: 3}
+  _prefab: {fileID: -5363951372858220334, guid: e3fca9e1950c5e74d8d35d60cbf9d134, type: 3}
   _mustUnload: 1
+  _onAnyKey:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1106847171}
+        m_TargetAssemblyTypeName: TheGame.Core.Animations.Parameters.TriggerAnimatorParameterAccess,
+          TheGame.Core.Animations.Parameters
+        m_MethodName: SetTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onClose:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1 &1661974050
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1661974051}
+  m_Layer: 0
+  m_Name: AnimatorParameters
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1661974051
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661974050}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1106847170}
+  m_Father: {fileID: 6644194196605567227}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1667902024
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,8 +403,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: -8177953530628294582}
   _stateAttribute: {fileID: 11400000, guid: 40fe01e231dc681458012d55bbacf7af, type: 2}
-  _prefab: {fileID: 739416882734305848, guid: d58ecb23fc04bcc478e268b9de65e9e7, type: 3}
+  _prefab: {fileID: 5723499700193931429, guid: d58ecb23fc04bcc478e268b9de65e9e7, type: 3}
   _mustUnload: 0
+  _onAnyKey:
+    m_PersistentCalls:
+      m_Calls: []
+  _onClose:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1939713890
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,8 +456,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: -8177953530628294582}
   _stateAttribute: {fileID: 11400000, guid: a5bc9a396375d8b48a667539c55ea25e, type: 2}
-  _prefab: {fileID: 2642434226075077755, guid: f85f37c0a253d6d4eb60389c6e8e73bf, type: 3}
+  _prefab: {fileID: 4115711184979187664, guid: f85f37c0a253d6d4eb60389c6e8e73bf, type: 3}
   _mustUnload: 0
+  _onAnyKey:
+    m_PersistentCalls:
+      m_Calls: []
+  _onClose:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2051422788
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,8 +509,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: -8177953530628294582}
   _stateAttribute: {fileID: 11400000, guid: 42de073e825163340ae81a7c4ec68caa, type: 2}
-  _prefab: {fileID: 3368356591044916416, guid: e4e1f273ec0108f43b4f027b332fd88b, type: 3}
+  _prefab: {fileID: -6851415387434177113, guid: e4e1f273ec0108f43b4f027b332fd88b, type: 3}
   _mustUnload: 0
+  _onAnyKey:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1106847171}
+        m_TargetAssemblyTypeName: TheGame.Core.Animations.Parameters.TriggerAnimatorParameterAccess,
+          TheGame.Core.Animations.Parameters
+        m_MethodName: SetTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onClose:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2078474521
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,8 +575,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: -8177953530628294582}
   _stateAttribute: {fileID: 11400000, guid: 2a659d57767cccb4bb791946307c41dc, type: 2}
-  _prefab: {fileID: 226392009492567998, guid: ca873dcf360139a4198a1c3c89206636, type: 3}
+  _prefab: {fileID: 7065991745672389969, guid: ca873dcf360139a4198a1c3c89206636, type: 3}
   _mustUnload: 0
+  _onAnyKey:
+    m_PersistentCalls:
+      m_Calls: []
+  _onClose:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1106847171}
+        m_TargetAssemblyTypeName: TheGame.Core.Animations.Parameters.TriggerAnimatorParameterAccess,
+          TheGame.Core.Animations.Parameters
+        m_MethodName: SetTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2116118617
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,8 +641,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: -8177953530628294582}
   _stateAttribute: {fileID: 11400000, guid: 47937c8dc68f7a14081e0b546be0efe0, type: 2}
-  _prefab: {fileID: 7168962590753045210, guid: 3f935378d3deef84a9646e15bb1c1666, type: 3}
+  _prefab: {fileID: 5143411799977691119, guid: 3f935378d3deef84a9646e15bb1c1666, type: 3}
   _mustUnload: 0
+  _onAnyKey:
+    m_PersistentCalls:
+      m_Calls: []
+  _onClose:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1146827222162820124
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,6 +680,7 @@ Transform:
   - {fileID: 588548129}
   - {fileID: 350835827}
   - {fileID: 7693414235445207937}
+  - {fileID: 1661974051}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
