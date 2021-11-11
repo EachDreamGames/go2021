@@ -22,9 +22,11 @@ namespace TheGame.Levels.Scripts
           case LevelState.None:
             break;
           case LevelState.Started:
+            Time.timeScale = 1;
             _audioListener.enabled = true;
             break;
           case LevelState.Paused:
+            Time.timeScale = 0;
             _audioListener.enabled = false;
             break;
           default:
