@@ -9,6 +9,7 @@ namespace TheGame.Characters.Ladybug
     [SerializeField] private Transform _rootTransform;
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private IntAnimatorParameter _orientationParameter;
+    [SerializeField] private bool _dontRotateSprite;
 
     private int _prevOrientation;
 
@@ -26,7 +27,8 @@ namespace TheGame.Characters.Ladybug
       Vector3 localScale = _rootTransform.localScale;
       localScale.x = orientation < 0 ? -1 : orientation > 0 ? 1 : localScale.x;
       _rootTransform.localScale = localScale;
-      _renderer.flipX = localScale.x < 0;
+      if (_dontRotateSprite)
+        _renderer.flipX = localScale.x < 0;
 
       _prevOrientation = orientation;
     }
