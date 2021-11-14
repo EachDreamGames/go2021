@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 946767732}
   - component: {fileID: 946767733}
+  - component: {fileID: 941476788}
   m_Layer: 0
   m_Name: Flying
   m_TagString: Untagged
@@ -46,8 +47,25 @@ MonoBehaviour:
   _animator: {fileID: 1697037731}
   _stateAttribute: {fileID: 11400000, guid: e15b0b9817d1c204180f4b833c42c03d, type: 2}
   _body: {fileID: 7462239647592496917}
-  _height: 0.25
+  _height: 1
   _compensateFallingSpeed: 1
+--- !u!114 &941476788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946767731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc2564b09c64ada9808758f75f40d80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 1697037731}
+  _stateAttribute: {fileID: 11400000, guid: e15b0b9817d1c204180f4b833c42c03d, type: 2}
+  _availableCountParameter: {fileID: 11400000, guid: d02714c050badfd4a84ee0b67e2a1e37, type: 2}
+  _isGroundedParameter: {fileID: 11400000, guid: 785804d8584881b409d5702bc558599e, type: 2}
+  _maxCount: 2
 --- !u!1 &1232654507
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +114,7 @@ MonoBehaviour:
   _rootTransform: {fileID: 3977671558602244228}
   _renderer: {fileID: 3977671558602244227}
   _orientationParameter: {fileID: 11400000, guid: ff137376720a22f4dab25e3823f8c2e0, type: 2}
+  _dontRotateSprite: 0
 --- !u!1 &1416525985
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +312,7 @@ MonoBehaviour:
   _animator: {fileID: 1697037731}
   _stateAttribute: {fileID: 11400000, guid: d989e1458c6d0fe4d9aff4c438874e6c, type: 2}
   _body: {fileID: 7462239647592496917}
-  _height: 2.5
+  _height: 1
   _compensateFallingSpeed: 0
 --- !u!1 &3977671558602244226
 GameObject:
