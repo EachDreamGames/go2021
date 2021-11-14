@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &335641397 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 335641397, guid: ec08ca793b1e84d458ea05301fd809bd, type: 3}
+  m_PrefabInstance: {fileID: 1070309429}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e6e9fa201ef47fb94824d20adef63fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &486994433
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,11 +208,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3977671558602244228, guid: ec08ca793b1e84d458ea05301fd809bd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.51
+      value: -1.57
       objectReference: {fileID: 0}
     - target: {fileID: 3977671558602244228, guid: ec08ca793b1e84d458ea05301fd809bd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.66
+      value: -1.31
       objectReference: {fileID: 0}
     - target: {fileID: 3977671558602244228, guid: ec08ca793b1e84d458ea05301fd809bd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -338,6 +349,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fe888405f64c9c458e408daee476c98, type: 3}
+--- !u!81 &1109087587 stripped
+AudioListener:
+  m_CorrespondingSourceObject: {fileID: 6323088322333668865, guid: 8fe888405f64c9c458e408daee476c98, type: 3}
+  m_PrefabInstance: {fileID: 1109087586}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1321522048
 GameObject:
   m_ObjectHideFlags: 0
@@ -3582,36 +3598,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1486466459
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1486466460}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1486466460
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1486466459}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.59, y: 0.57, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1629728122 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7934092267340843410, guid: edea6c499217ade45afca833876f52ff, type: 3}
@@ -3633,6 +3619,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelController
       objectReference: {fileID: 0}
+    - target: {fileID: 3181049126085337705, guid: 4fe078e64b49a4646887d8f2a9fecdd7, type: 3}
+      propertyPath: _audioListener
+      value: 
+      objectReference: {fileID: 1109087587}
     - target: {fileID: 3181049126085337706, guid: 4fe078e64b49a4646887d8f2a9fecdd7, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3938,5 +3928,33 @@ PrefabInstance:
       propertyPath: _playerTransform
       value: 
       objectReference: {fileID: 1880297284}
+    - target: {fileID: 7934092267340843411, guid: edea6c499217ade45afca833876f52ff, type: 3}
+      propertyPath: _onOvertook.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934092267340843411, guid: edea6c499217ade45afca833876f52ff, type: 3}
+      propertyPath: _onOvertook.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934092267340843411, guid: edea6c499217ade45afca833876f52ff, type: 3}
+      propertyPath: _onOvertook.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 335641397}
+    - target: {fileID: 7934092267340843411, guid: edea6c499217ade45afca833876f52ff, type: 3}
+      propertyPath: _onOvertook.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934092267340843411, guid: edea6c499217ade45afca833876f52ff, type: 3}
+      propertyPath: _onOvertook.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934092267340843411, guid: edea6c499217ade45afca833876f52ff, type: 3}
+      propertyPath: _onOvertook.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TheGame.Core.Animations.Parameters.TriggerAnimatorParameterAccess, TheGame.Core.Animations.Parameters
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934092267340843411, guid: edea6c499217ade45afca833876f52ff, type: 3}
+      propertyPath: _onOvertook.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edea6c499217ade45afca833876f52ff, type: 3}

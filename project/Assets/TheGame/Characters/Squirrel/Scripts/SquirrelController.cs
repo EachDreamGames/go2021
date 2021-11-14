@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace TheGame.Characters.Squirrel.Scripts
 {
@@ -11,13 +12,14 @@ namespace TheGame.Characters.Squirrel.Scripts
     [SerializeField] private float _minSpeedDistance;
     [SerializeField] private float _maxSpeedDistance;
     [SerializeField] private float _criticalDistance;
+    [SerializeField] private UnityEvent _onOvertook;
 
     private void FixedUpdate()
     {
       Vector3 position = _squirrelTransform.position;
       float distance = _playerTransform.position.x - position.x;
       CheckCriticalDistance(distance);
-      
+
       float speed = distance <= _minSpeedDistance
         ? _minSpeed
         : distance >= _maxSpeedDistance
@@ -34,14 +36,15 @@ namespace TheGame.Characters.Squirrel.Scripts
     {
       if (distance > _criticalDistance) return;
 
-      Debug.Log("Догнали");
+      _onOvertook?.Invoke();
+      enabled = false;
     }
 
     private void OnDrawGizmosSelected()
     {
       Vector3 position = _squirrelTransform.position;
       Gizmos.color = Color.green;
-      Gizmos.DrawRay(new Vector3(position.x, position.y -0.5f), Vector3.right * _minSpeedDistance);
+      Gizmos.DrawRay(new Vector3(position.x, position.y - 0.5f), Vector3.right * _minSpeedDistance);
 
       Gizmos.color = Color.yellow;
       Gizmos.DrawRay(new Vector3(position.x, position.y + 0.5f), Vector3.right * _maxSpeedDistance);
