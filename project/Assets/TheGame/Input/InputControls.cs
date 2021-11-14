@@ -33,6 +33,22 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""IsRunning"",
+                    ""type"": ""Button"",
+                    ""id"": ""2dba5a3e-6e15-46c7-bf7e-6995b9c25006"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""WalkSpeedMultiplier"",
+                    ""type"": ""Value"",
+                    ""id"": ""6bb2fc81-b933-4f82-bbf3-56d86e0d91d9"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -107,7 +123,7 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""id"": ""4b9e4558-1dfd-4973-b1d9-1d8d638900ab"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Scale(factor=4)"",
                     ""groups"": """",
                     ""action"": ""Walk"",
                     ""isComposite"": true,
@@ -140,7 +156,7 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""id"": ""855db161-139a-4258-8f47-ad1dc6a46112"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Scale(factor=4)"",
                     ""groups"": """",
                     ""action"": ""Walk"",
                     ""isComposite"": true,
@@ -187,6 +203,39 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e7f2bd7c-5731-4650-8a5e-e53bc253f728"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""IsRunning"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""96300e32-4f7f-4920-bd19-453793c1ac22"",
+                    ""path"": ""<Gamepad>/dpad/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WalkSpeedMultiplier"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5b9aceb1-03a4-477a-8f5c-2dd60ef0066a"",
+                    ""path"": ""<Gamepad>/leftStick/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WalkSpeedMultiplier"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -278,6 +327,8 @@ public class @InputControls : IInputActionCollection, IDisposable
         m_Ladybug = asset.FindActionMap("Ladybug", throwIfNotFound: true);
         m_Ladybug_Walk = m_Ladybug.FindAction("Walk", throwIfNotFound: true);
         m_Ladybug_Jump = m_Ladybug.FindAction("Jump", throwIfNotFound: true);
+        m_Ladybug_IsRunning = m_Ladybug.FindAction("IsRunning", throwIfNotFound: true);
+        m_Ladybug_WalkSpeedMultiplier = m_Ladybug.FindAction("WalkSpeedMultiplier", throwIfNotFound: true);
         // GameController
         m_GameController = asset.FindActionMap("GameController", throwIfNotFound: true);
         m_GameController_AnyKey = m_GameController.FindAction("AnyKey", throwIfNotFound: true);
@@ -333,12 +384,16 @@ public class @InputControls : IInputActionCollection, IDisposable
     private ILadybugActions m_LadybugActionsCallbackInterface;
     private readonly InputAction m_Ladybug_Walk;
     private readonly InputAction m_Ladybug_Jump;
+    private readonly InputAction m_Ladybug_IsRunning;
+    private readonly InputAction m_Ladybug_WalkSpeedMultiplier;
     public struct LadybugActions
     {
         private @InputControls m_Wrapper;
         public LadybugActions(@InputControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Walk => m_Wrapper.m_Ladybug_Walk;
         public InputAction @Jump => m_Wrapper.m_Ladybug_Jump;
+        public InputAction @IsRunning => m_Wrapper.m_Ladybug_IsRunning;
+        public InputAction @WalkSpeedMultiplier => m_Wrapper.m_Ladybug_WalkSpeedMultiplier;
         public InputActionMap Get() { return m_Wrapper.m_Ladybug; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -354,6 +409,12 @@ public class @InputControls : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_LadybugActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_LadybugActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_LadybugActionsCallbackInterface.OnJump;
+                @IsRunning.started -= m_Wrapper.m_LadybugActionsCallbackInterface.OnIsRunning;
+                @IsRunning.performed -= m_Wrapper.m_LadybugActionsCallbackInterface.OnIsRunning;
+                @IsRunning.canceled -= m_Wrapper.m_LadybugActionsCallbackInterface.OnIsRunning;
+                @WalkSpeedMultiplier.started -= m_Wrapper.m_LadybugActionsCallbackInterface.OnWalkSpeedMultiplier;
+                @WalkSpeedMultiplier.performed -= m_Wrapper.m_LadybugActionsCallbackInterface.OnWalkSpeedMultiplier;
+                @WalkSpeedMultiplier.canceled -= m_Wrapper.m_LadybugActionsCallbackInterface.OnWalkSpeedMultiplier;
             }
             m_Wrapper.m_LadybugActionsCallbackInterface = instance;
             if (instance != null)
@@ -364,6 +425,12 @@ public class @InputControls : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @IsRunning.started += instance.OnIsRunning;
+                @IsRunning.performed += instance.OnIsRunning;
+                @IsRunning.canceled += instance.OnIsRunning;
+                @WalkSpeedMultiplier.started += instance.OnWalkSpeedMultiplier;
+                @WalkSpeedMultiplier.performed += instance.OnWalkSpeedMultiplier;
+                @WalkSpeedMultiplier.canceled += instance.OnWalkSpeedMultiplier;
             }
         }
     }
@@ -413,6 +480,8 @@ public class @InputControls : IInputActionCollection, IDisposable
     {
         void OnWalk(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnIsRunning(InputAction.CallbackContext context);
+        void OnWalkSpeedMultiplier(InputAction.CallbackContext context);
     }
     public interface IGameControllerActions
     {

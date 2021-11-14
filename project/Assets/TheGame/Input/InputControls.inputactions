@@ -20,6 +20,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "IsRunning",
+                    "type": "Button",
+                    "id": "2dba5a3e-6e15-46c7-bf7e-6995b9c25006",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "WalkSpeedMultiplier",
+                    "type": "Value",
+                    "id": "6bb2fc81-b933-4f82-bbf3-56d86e0d91d9",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -94,7 +110,7 @@
                     "id": "4b9e4558-1dfd-4973-b1d9-1d8d638900ab",
                     "path": "1DAxis",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "Scale(factor=4)",
                     "groups": "",
                     "action": "Walk",
                     "isComposite": true,
@@ -127,7 +143,7 @@
                     "id": "855db161-139a-4258-8f47-ad1dc6a46112",
                     "path": "1DAxis",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "Scale(factor=4)",
                     "groups": "",
                     "action": "Walk",
                     "isComposite": true,
@@ -174,6 +190,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e7f2bd7c-5731-4650-8a5e-e53bc253f728",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "IsRunning",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "96300e32-4f7f-4920-bd19-453793c1ac22",
+                    "path": "<Gamepad>/dpad/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WalkSpeedMultiplier",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5b9aceb1-03a4-477a-8f5c-2dd60ef0066a",
+                    "path": "<Gamepad>/leftStick/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WalkSpeedMultiplier",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

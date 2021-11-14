@@ -168,7 +168,8 @@ MonoBehaviour:
   _movementDirectionParameter: {fileID: 11400000, guid: ff137376720a22f4dab25e3823f8c2e0, type: 2}
   _movementSpeedParameter: {fileID: 11400000, guid: 3575499bd02d0a347a0fb1efc0f2c518, type: 2}
   _shouldJumpParameter: {fileID: 11400000, guid: afcb4191048bb4b4c955fe69edbd1c09, type: 2}
-  _movementSpeed: 4
+  _walkSpeed: 2
+  _runSpeed: 4
 --- !u!1 &1475655849
 GameObject:
   m_ObjectHideFlags: 0
