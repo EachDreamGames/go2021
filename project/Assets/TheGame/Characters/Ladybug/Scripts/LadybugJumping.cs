@@ -1,4 +1,5 @@
-﻿using TheGame.Core.Animations.Attributes;
+﻿using System;
+using TheGame.Core.Animations.Attributes;
 using UnityEngine;
 
 namespace TheGame.Characters.Ladybug
@@ -8,8 +9,21 @@ namespace TheGame.Characters.Ladybug
     [SerializeField] private Rigidbody2D _body;
     [SerializeField] private float _height;
     [SerializeField] private bool _compensateFallingSpeed;
+    [SerializeField] private ImpulseMethod _impulseMethod;
 
     protected override void OnStateActivate()
+    {
+      if (_impulseMethod == ImpulseMethod.OnStateActivate)
+        ApplyImpulse();
+    }
+
+    protected override void OnStateDeactivate()
+    {
+      if (_impulseMethod == ImpulseMethod.OnStateDeactivate)
+        ApplyImpulse();
+    }
+
+    private void ApplyImpulse()
     {
       if (_compensateFallingSpeed && _body.velocity.y < 0)
         _body.velocity = new Vector2(_body.velocity.x, 0);
@@ -26,6 +40,13 @@ namespace TheGame.Characters.Ladybug
     {
       float acceleration = Physics2D.gravity.y * _body.gravityScale;
       return Mathf.Sqrt(-_height * 2 / acceleration);
+    }
+
+    [Serializable]
+    private enum ImpulseMethod
+    {
+      OnStateActivate,
+      OnStateDeactivate
     }
   }
 }

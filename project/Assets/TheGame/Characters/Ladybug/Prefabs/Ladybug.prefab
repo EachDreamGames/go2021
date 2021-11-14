@@ -49,6 +49,7 @@ MonoBehaviour:
   _body: {fileID: 7462239647592496917}
   _height: 1
   _compensateFallingSpeed: 1
+  _impulseMethod: 1
 --- !u!114 &941476788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,6 +315,7 @@ MonoBehaviour:
   _body: {fileID: 7462239647592496917}
   _height: 1
   _compensateFallingSpeed: 0
+  _impulseMethod: 1
 --- !u!1 &3977671558602244226
 GameObject:
   m_ObjectHideFlags: 0
