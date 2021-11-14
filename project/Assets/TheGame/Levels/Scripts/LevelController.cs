@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace TheGame.Levels.Scripts
 {
@@ -45,6 +46,9 @@ namespace TheGame.Levels.Scripts
 
     public void LevelStart() =>
       State = LevelState.Started;
+
+    public void LevelRestart() =>
+      SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     private enum LevelState
     {
