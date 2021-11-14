@@ -1,7 +1,6 @@
 ﻿using TheGame.Core.Animations.Attributes;
 using TheGame.Levels.Scripts;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace TheGame.Management.GameController
 {
@@ -20,21 +19,12 @@ namespace TheGame.Management.GameController
         _levelController.LevelResume();
       else
         _levelController.LevelStart();
-
-      SceneManager.SetActiveScene(LevelScene);
     }
 
     protected override void OnStateDeactivate()
     {
-      SceneManager.SetActiveScene(MenuScene);
       _levelController.LevelPause();
       _audioListener.enabled = enabled;
     }
-
-    private Scene LevelScene =>
-      _levelController.gameObject.scene;
-
-    private Scene MenuScene =>
-      gameObject.scene;
   }
 }

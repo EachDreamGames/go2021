@@ -17,7 +17,7 @@ namespace TheGame.Management.GameController
       SceneManager.sceneLoaded += LevelLoaded;
 
     protected override void OnStateActivate() =>
-      SceneManager.LoadSceneAsync(FirstLevelScene, LoadSceneMode.Additive);
+      SceneManager.LoadSceneAsync(FirstLevelScene);
 
     private void LevelLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
