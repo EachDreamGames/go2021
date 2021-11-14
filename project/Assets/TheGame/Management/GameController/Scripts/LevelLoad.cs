@@ -9,7 +9,7 @@ namespace TheGame.Management.GameController
   {
     [SerializeField] private BoolAnimatorParameter _isLevelLoaded;
 
-    private const string FirstLevelScene = "TheGame/Levels/Scenes/Level-0";
+    private const string FirstLevelScene = "TheGame/Levels/Scenes/Level-1";
 
     public static Scene LoadedScene;
 
