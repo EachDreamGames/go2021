@@ -11,6 +11,7 @@ namespace TheGame.Characters.Ladybug
     [SerializeField] private IntAnimatorParameter _movementDirectionParameter;
     [SerializeField] private FloatAnimatorParameter _movementSpeedParameter;
     [SerializeField] private TriggerAnimatorParameter _shouldJumpParameter;
+    [SerializeField] private TriggerAnimatorParameter _shouldInteractParameter;
     [SerializeField] private float _walkSpeed;
     [SerializeField] private float _runSpeed;
 
@@ -121,5 +122,8 @@ namespace TheGame.Characters.Ladybug
       _animator.SetValue(_movementSpeedParameter, _movementSpeed);
       _animator.SetValue(_movementDirectionParameter, _movementDirection);
     }
+
+    public void OnInteract(InputAction.CallbackContext context) =>
+      _animator.SetTrigger(_shouldInteractParameter);
   }
 }

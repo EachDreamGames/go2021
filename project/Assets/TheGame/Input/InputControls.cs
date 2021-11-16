@@ -49,6 +49,14 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""1866d14e-9499-4c42-adc7-d3ead858784b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -238,6 +246,28 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""action"": ""WalkSpeedMultiplier"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""175322ca-b2c0-40e7-bcf3-dac800ff2c5e"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dec14ebe-a396-407a-876c-9ac386ad6b90"",
+                    ""path"": ""<XInputController>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -329,6 +359,7 @@ public class @InputControls : IInputActionCollection, IDisposable
         m_Ladybug_Jump = m_Ladybug.FindAction("Jump", throwIfNotFound: true);
         m_Ladybug_IsRunning = m_Ladybug.FindAction("IsRunning", throwIfNotFound: true);
         m_Ladybug_WalkSpeedMultiplier = m_Ladybug.FindAction("WalkSpeedMultiplier", throwIfNotFound: true);
+        m_Ladybug_Interact = m_Ladybug.FindAction("Interact", throwIfNotFound: true);
         // GameController
         m_GameController = asset.FindActionMap("GameController", throwIfNotFound: true);
         m_GameController_AnyKey = m_GameController.FindAction("AnyKey", throwIfNotFound: true);
@@ -386,6 +417,7 @@ public class @InputControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Ladybug_Jump;
     private readonly InputAction m_Ladybug_IsRunning;
     private readonly InputAction m_Ladybug_WalkSpeedMultiplier;
+    private readonly InputAction m_Ladybug_Interact;
     public struct LadybugActions
     {
         private @InputControls m_Wrapper;
@@ -394,6 +426,7 @@ public class @InputControls : IInputActionCollection, IDisposable
         public InputAction @Jump => m_Wrapper.m_Ladybug_Jump;
         public InputAction @IsRunning => m_Wrapper.m_Ladybug_IsRunning;
         public InputAction @WalkSpeedMultiplier => m_Wrapper.m_Ladybug_WalkSpeedMultiplier;
+        public InputAction @Interact => m_Wrapper.m_Ladybug_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Ladybug; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -415,6 +448,9 @@ public class @InputControls : IInputActionCollection, IDisposable
                 @WalkSpeedMultiplier.started -= m_Wrapper.m_LadybugActionsCallbackInterface.OnWalkSpeedMultiplier;
                 @WalkSpeedMultiplier.performed -= m_Wrapper.m_LadybugActionsCallbackInterface.OnWalkSpeedMultiplier;
                 @WalkSpeedMultiplier.canceled -= m_Wrapper.m_LadybugActionsCallbackInterface.OnWalkSpeedMultiplier;
+                @Interact.started -= m_Wrapper.m_LadybugActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_LadybugActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_LadybugActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_LadybugActionsCallbackInterface = instance;
             if (instance != null)
@@ -431,6 +467,9 @@ public class @InputControls : IInputActionCollection, IDisposable
                 @WalkSpeedMultiplier.started += instance.OnWalkSpeedMultiplier;
                 @WalkSpeedMultiplier.performed += instance.OnWalkSpeedMultiplier;
                 @WalkSpeedMultiplier.canceled += instance.OnWalkSpeedMultiplier;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -482,6 +521,7 @@ public class @InputControls : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnIsRunning(InputAction.CallbackContext context);
         void OnWalkSpeedMultiplier(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
     public interface IGameControllerActions
     {
