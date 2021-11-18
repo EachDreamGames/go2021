@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: -8177953530628294582}
-  _stateAttribute: {fileID: 11400000, guid: a5bc9a396375d8b48a667539c55ea25e, type: 2}
+  _stateAttribute: {fileID: 11400000, guid: 31d388e3bb17dcf49a34b15ca85c3753, type: 2}
   _prefab: {fileID: 2642434226075077755, guid: f85f37c0a253d6d4eb60389c6e8e73bf, type: 3}
   _mustUnload: 0
 --- !u!1 &2051422788
@@ -519,6 +519,7 @@ GameObject:
   - component: {fileID: 6644194196605567227}
   - component: {fileID: -8177953530628294582}
   - component: {fileID: 928186751}
+  - component: {fileID: 449231599}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -583,6 +584,20 @@ MonoBehaviour:
   _shouldShowHelpParameter: {fileID: 11400000, guid: 7234d9f9b52c9d7489ed5ce74c1312f9, type: 2}
   _shouldShowCreditsParameter: {fileID: 11400000, guid: 8816cfb8caecb974b9f4fda1c5e68cd4, type: 2}
   _shouldExitGameParameter: {fileID: 11400000, guid: cc42f391bc110fa4aa9d5b6130d286d1, type: 2}
+  _isSpecificLevelLoadingParameter: {fileID: 11400000, guid: 18bcc15d2ea23ae4fac0d41fcae09473, type: 2}
+  _firstLevel: {fileID: 11400000, guid: 7c0cca1b3eeeacf4fbb3b58011b71d8a, type: 2}
+--- !u!114 &449231599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146827222162820124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa73ec7cb0b4a7e822002cc61851f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8762774826991280667
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,7 +608,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7693414235445207937}
   - component: {fileID: 8147049020183972328}
-  - component: {fileID: 8517484418807472799}
   m_Layer: 0
   m_Name: LevelLoadAndUnload
   m_TagString: Untagged
@@ -629,19 +643,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: -8177953530628294582}
   _stateAttribute: {fileID: 11400000, guid: a5bc9a396375d8b48a667539c55ea25e, type: 2}
-  _isLevelLoaded: {fileID: 11400000, guid: 7b3b6166f2e12be47867481fc828a1bd, type: 2}
---- !u!114 &8517484418807472799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8762774826991280667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14b736a461824d14b345fc49707e398f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: -8177953530628294582}
-  _stateAttribute: {fileID: 11400000, guid: b1ef31f5e671d664485fbf2e05807e76, type: 2}
-  _isLevelLoaded: {fileID: 11400000, guid: 7b3b6166f2e12be47867481fc828a1bd, type: 2}
+  _gameController: {fileID: 928186751}
+  _isLevelLoadedParameter: {fileID: 11400000, guid: 7b3b6166f2e12be47867481fc828a1bd, type: 2}

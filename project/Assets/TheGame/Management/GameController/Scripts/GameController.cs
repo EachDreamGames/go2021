@@ -16,11 +16,16 @@ namespace TheGame.Management.GameController
     [SerializeField] private TriggerAnimatorParameter _shouldShowHelpParameter;
     [SerializeField] private TriggerAnimatorParameter _shouldShowCreditsParameter;
     [SerializeField] private TriggerAnimatorParameter _shouldExitGameParameter;
+    [SerializeField] private TriggerAnimatorParameter _isSpecificLevelLoadingParameter;
+    [SerializeField] private LevelDescription _firstLevel;
 
     private InputControls _inputControls;
 
+    public LevelDescription CurrentLevel { get; private set; }
+
     private void Awake()
     {
+      CurrentLevel = _firstLevel;
       _inputControls = new InputControls();
       _inputControls.GameController.SetCallbacks(this);
     }
@@ -48,6 +53,12 @@ namespace TheGame.Management.GameController
 
     public void ExitGame() =>
       _animator.SetTrigger(_shouldExitGameParameter);
+
+    public void StartLevel(LevelDescription description)
+    {
+      CurrentLevel = description;
+      _animator.SetTrigger(_isSpecificLevelLoadingParameter);
+    }
 
     public void OnAnyKey(InputAction.CallbackContext context)
     {

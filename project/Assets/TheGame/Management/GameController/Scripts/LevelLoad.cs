@@ -7,24 +7,23 @@ namespace TheGame.Management.GameController
 {
   public class LevelLoad : AnimatorStateAttributeBehaviour
   {
-    [SerializeField] private BoolAnimatorParameter _isLevelLoaded;
-
-    private const string FirstLevelScene = "TheGame/Levels/Scenes/Level-1";
-
-    public static Scene LoadedScene;
+    [SerializeField] private GameController _gameController;
+    [SerializeField] private BoolAnimatorParameter _isLevelLoadedParameter;
 
     private void Start() =>
       SceneManager.sceneLoaded += LevelLoaded;
 
-    protected override void OnStateActivate() =>
-      SceneManager.LoadSceneAsync(FirstLevelScene);
+    protected override void OnStateActivate()
+    {
+      Animator.SetValue(_isLevelLoadedParameter, false);
+      SceneManager.LoadSceneAsync(_gameController.CurrentLevel.SceneName);
+    }
 
     private void LevelLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
       if (!IsStateActive) return;
 
-      Animator.SetValue(_isLevelLoaded, true);
-      LoadedScene = scene;
+      Animator.SetValue(_isLevelLoadedParameter, true);
     }
   }
 }

@@ -1,5 +1,4 @@
 ﻿using TheGame.Core.Animations.Attributes;
-using TheGame.Levels.Scripts;
 using UnityEngine;
 
 namespace TheGame.Management.GameController

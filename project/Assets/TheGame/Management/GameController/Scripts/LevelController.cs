@@ -1,12 +1,15 @@
 using System;
+using System.Collections;
+using TheGame.Core.Common;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace TheGame.Levels.Scripts
+namespace TheGame.Management.GameController
 {
   public class LevelController : MonoBehaviour
   {
     [SerializeField] private AudioListener _audioListener;
+    [SerializeField] private GameActions _gameActions;
 
     private LevelState _state;
 
@@ -23,6 +26,7 @@ namespace TheGame.Levels.Scripts
           case LevelState.None:
             break;
           case LevelState.Started:
+            StartCoroutine(Blackout.Hide());
             Time.timeScale = 1;
             _audioListener.enabled = true;
             break;
@@ -49,6 +53,17 @@ namespace TheGame.Levels.Scripts
 
     public void LevelRestart() =>
       SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    
+    public void StartNextLevel(LevelDescription description)
+    {
+      StartCoroutine(DoStart());
+
+      IEnumerator DoStart()
+      {
+        yield return Blackout.Show();
+        _gameActions.StartLevel(description);
+      }
+    }
 
     private enum LevelState
     {

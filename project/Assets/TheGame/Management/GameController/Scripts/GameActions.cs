@@ -26,5 +26,8 @@ namespace TheGame.Management.GameController
 
     public void ExitGame() =>
       _gameController.ExitGame();
+
+    public void StartLevel(LevelDescription description) => 
+      _gameController.StartLevel(description);
   }
 }
