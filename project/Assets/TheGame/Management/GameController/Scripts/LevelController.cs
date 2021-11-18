@@ -52,7 +52,7 @@ namespace TheGame.Management.GameController
       State = LevelState.Started;
 
     public void LevelRestart() =>
-      SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+      _gameActions.RestartCurrentLevel();
     
     public void StartNextLevel(LevelDescription description)
     {
