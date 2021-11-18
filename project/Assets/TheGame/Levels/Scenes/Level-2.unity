@@ -369,6 +369,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6323088320740507084, guid: 8fe888405f64c9c458e408daee476c98, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8fe888405f64c9c458e408daee476c98, type: 3}
+--- !u!81 &61867714 stripped
+AudioListener:
+  m_CorrespondingSourceObject: {fileID: 6323088322333668865, guid: 8fe888405f64c9c458e408daee476c98, type: 3}
+  m_PrefabInstance: {fileID: 61867713}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &146783793 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6512594828764861459, guid: b8a5cde6d4cd992479e056c440f9a0c4, type: 3}
@@ -21559,7 +21564,7 @@ PrefabInstance:
     - target: {fileID: 3181049126085337705, guid: 4fe078e64b49a4646887d8f2a9fecdd7, type: 3}
       propertyPath: _audioListener
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 61867714}
     - target: {fileID: 3181049126085337706, guid: 4fe078e64b49a4646887d8f2a9fecdd7, type: 3}
       propertyPath: m_RootOrder
       value: 0
