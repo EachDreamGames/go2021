@@ -57,6 +57,38 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Kick"",
+                    ""type"": ""Button"",
+                    ""id"": ""4f5f7896-7f88-4f60-a2fd-9844304886b7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Spit"",
+                    ""type"": ""Button"",
+                    ""id"": ""b073a90f-db4f-4a4f-8fc7-431f61cbb118"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Aim"",
+                    ""type"": ""Value"",
+                    ""id"": ""0c591a49-b297-4e98-b58d-416faf890493"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""MouseAim"",
+                    ""type"": ""Value"",
+                    ""id"": ""9fb9c290-be47-4e12-b35b-6d51d9a19797"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -268,6 +300,72 @@ public class @InputControls : IInputActionCollection, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""442d4c25-b820-4af1-b465-acc917e139e1"",
+                    ""path"": ""<XInputController>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Kick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5883f713-4556-49a4-bb66-10ee69ac7595"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Kick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""07cace07-033b-4779-999f-41c8e16ed8df"",
+                    ""path"": ""<XInputController>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Spit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""82cff631-e26e-4202-9252-7bf941256035"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Spit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6ac71efd-404e-4384-b042-4a2f0c44b9a7"",
+                    ""path"": ""<XInputController>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0ee7e193-4295-4e7e-b71b-a7b8ab609278"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseAim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -360,6 +458,10 @@ public class @InputControls : IInputActionCollection, IDisposable
         m_Ladybug_IsRunning = m_Ladybug.FindAction("IsRunning", throwIfNotFound: true);
         m_Ladybug_WalkSpeedMultiplier = m_Ladybug.FindAction("WalkSpeedMultiplier", throwIfNotFound: true);
         m_Ladybug_Interact = m_Ladybug.FindAction("Interact", throwIfNotFound: true);
+        m_Ladybug_Kick = m_Ladybug.FindAction("Kick", throwIfNotFound: true);
+        m_Ladybug_Spit = m_Ladybug.FindAction("Spit", throwIfNotFound: true);
+        m_Ladybug_Aim = m_Ladybug.FindAction("Aim", throwIfNotFound: true);
+        m_Ladybug_MouseAim = m_Ladybug.FindAction("MouseAim", throwIfNotFound: true);
         // GameController
         m_GameController = asset.FindActionMap("GameController", throwIfNotFound: true);
         m_GameController_AnyKey = m_GameController.FindAction("AnyKey", throwIfNotFound: true);
@@ -418,6 +520,10 @@ public class @InputControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Ladybug_IsRunning;
     private readonly InputAction m_Ladybug_WalkSpeedMultiplier;
     private readonly InputAction m_Ladybug_Interact;
+    private readonly InputAction m_Ladybug_Kick;
+    private readonly InputAction m_Ladybug_Spit;
+    private readonly InputAction m_Ladybug_Aim;
+    private readonly InputAction m_Ladybug_MouseAim;
     public struct LadybugActions
     {
         private @InputControls m_Wrapper;
@@ -427,6 +533,10 @@ public class @InputControls : IInputActionCollection, IDisposable
         public InputAction @IsRunning => m_Wrapper.m_Ladybug_IsRunning;
         public InputAction @WalkSpeedMultiplier => m_Wrapper.m_Ladybug_WalkSpeedMultiplier;
         public InputAction @Interact => m_Wrapper.m_Ladybug_Interact;
+        public InputAction @Kick => m_Wrapper.m_Ladybug_Kick;
+        public InputAction @Spit => m_Wrapper.m_Ladybug_Spit;
+        public InputAction @Aim => m_Wrapper.m_Ladybug_Aim;
+        public InputAction @MouseAim => m_Wrapper.m_Ladybug_MouseAim;
         public InputActionMap Get() { return m_Wrapper.m_Ladybug; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -451,6 +561,18 @@ public class @InputControls : IInputActionCollection, IDisposable
                 @Interact.started -= m_Wrapper.m_LadybugActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_LadybugActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_LadybugActionsCallbackInterface.OnInteract;
+                @Kick.started -= m_Wrapper.m_LadybugActionsCallbackInterface.OnKick;
+                @Kick.performed -= m_Wrapper.m_LadybugActionsCallbackInterface.OnKick;
+                @Kick.canceled -= m_Wrapper.m_LadybugActionsCallbackInterface.OnKick;
+                @Spit.started -= m_Wrapper.m_LadybugActionsCallbackInterface.OnSpit;
+                @Spit.performed -= m_Wrapper.m_LadybugActionsCallbackInterface.OnSpit;
+                @Spit.canceled -= m_Wrapper.m_LadybugActionsCallbackInterface.OnSpit;
+                @Aim.started -= m_Wrapper.m_LadybugActionsCallbackInterface.OnAim;
+                @Aim.performed -= m_Wrapper.m_LadybugActionsCallbackInterface.OnAim;
+                @Aim.canceled -= m_Wrapper.m_LadybugActionsCallbackInterface.OnAim;
+                @MouseAim.started -= m_Wrapper.m_LadybugActionsCallbackInterface.OnMouseAim;
+                @MouseAim.performed -= m_Wrapper.m_LadybugActionsCallbackInterface.OnMouseAim;
+                @MouseAim.canceled -= m_Wrapper.m_LadybugActionsCallbackInterface.OnMouseAim;
             }
             m_Wrapper.m_LadybugActionsCallbackInterface = instance;
             if (instance != null)
@@ -470,6 +592,18 @@ public class @InputControls : IInputActionCollection, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @Kick.started += instance.OnKick;
+                @Kick.performed += instance.OnKick;
+                @Kick.canceled += instance.OnKick;
+                @Spit.started += instance.OnSpit;
+                @Spit.performed += instance.OnSpit;
+                @Spit.canceled += instance.OnSpit;
+                @Aim.started += instance.OnAim;
+                @Aim.performed += instance.OnAim;
+                @Aim.canceled += instance.OnAim;
+                @MouseAim.started += instance.OnMouseAim;
+                @MouseAim.performed += instance.OnMouseAim;
+                @MouseAim.canceled += instance.OnMouseAim;
             }
         }
     }
@@ -522,6 +656,10 @@ public class @InputControls : IInputActionCollection, IDisposable
         void OnIsRunning(InputAction.CallbackContext context);
         void OnWalkSpeedMultiplier(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnKick(InputAction.CallbackContext context);
+        void OnSpit(InputAction.CallbackContext context);
+        void OnAim(InputAction.CallbackContext context);
+        void OnMouseAim(InputAction.CallbackContext context);
     }
     public interface IGameControllerActions
     {

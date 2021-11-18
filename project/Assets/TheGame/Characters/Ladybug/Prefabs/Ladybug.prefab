@@ -378,6 +378,8 @@ MonoBehaviour:
   _movementSpeedParameter: {fileID: 11400000, guid: 3575499bd02d0a347a0fb1efc0f2c518, type: 2}
   _shouldJumpParameter: {fileID: 11400000, guid: afcb4191048bb4b4c955fe69edbd1c09, type: 2}
   _shouldInteractParameter: {fileID: 11400000, guid: cafcc59f0ab5ce14dbf6b2eb150a129b, type: 2}
+  _shouldSpitParameter: {fileID: 11400000, guid: 16822c17ef0b22647bbaa2e347102175, type: 2}
+  _shouldKickParameter: {fileID: 11400000, guid: 066164ead65512248abf77101d3939aa, type: 2}
   _walkSpeed: 2
   _runSpeed: 4
 --- !u!1 &1475655849

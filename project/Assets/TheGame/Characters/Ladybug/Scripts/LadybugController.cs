@@ -12,6 +12,8 @@ namespace TheGame.Characters.Ladybug
     [SerializeField] private FloatAnimatorParameter _movementSpeedParameter;
     [SerializeField] private TriggerAnimatorParameter _shouldJumpParameter;
     [SerializeField] private TriggerAnimatorParameter _shouldInteractParameter;
+    [SerializeField] private TriggerAnimatorParameter _shouldSpitParameter;
+    [SerializeField] private TriggerAnimatorParameter _shouldKickParameter;
     [SerializeField] private float _walkSpeed;
     [SerializeField] private float _runSpeed;
 
@@ -125,5 +127,25 @@ namespace TheGame.Characters.Ladybug
 
     public void OnInteract(InputAction.CallbackContext context) =>
       _animator.SetTrigger(_shouldInteractParameter);
+
+    public void OnKick(InputAction.CallbackContext context)
+    {
+      if (!context.started) return;
+      _animator.SetTrigger(_shouldKickParameter);
+    }
+
+    public void OnSpit(InputAction.CallbackContext context)
+    {
+      if (!context.started) return;
+      _animator.SetTrigger(_shouldSpitParameter);
+    }
+
+    public void OnAim(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnMouseAim(InputAction.CallbackContext context)
+    {
+    }
   }
 }
