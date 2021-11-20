@@ -1,4 +1,5 @@
 ﻿using System;
+using Sirenix.OdinInspector;
 using TheGame.Core.Animations.Parameters;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,12 +9,7 @@ namespace TheGame.Characters.Ladybug
   public class LadybugController : MonoBehaviour, InputControls.ILadybugActions
   {
     [SerializeField] private Animator _animator;
-    [SerializeField] private IntAnimatorParameter _movementDirectionParameter;
-    [SerializeField] private FloatAnimatorParameter _movementSpeedParameter;
-    [SerializeField] private TriggerAnimatorParameter _shouldJumpParameter;
-    [SerializeField] private TriggerAnimatorParameter _shouldInteractParameter;
-    [SerializeField] private TriggerAnimatorParameter _shouldSpitParameter;
-    [SerializeField] private TriggerAnimatorParameter _shouldKickParameter;
+    [SerializeField] private AnimatorParameters _parameters;
     [SerializeField] private float _walkSpeed;
     [SerializeField] private float _runSpeed;
 
@@ -61,14 +57,14 @@ namespace TheGame.Characters.Ladybug
       switch (context.phase)
       {
         case InputActionPhase.Started:
-          _animator.SetTrigger(_shouldJumpParameter);
+          _animator.SetTrigger(_parameters.ShouldJump);
           break;
         case InputActionPhase.Performed:
           break;
         case InputActionPhase.Disabled:
         case InputActionPhase.Waiting:
         case InputActionPhase.Canceled:
-          _animator.ResetTrigger(_shouldJumpParameter);
+          _animator.ResetTrigger(_parameters.ShouldJump);
           break;
         default:
           throw new ArgumentOutOfRangeException();
@@ -121,23 +117,23 @@ namespace TheGame.Characters.Ladybug
 
     private void ApplyMovementParams()
     {
-      _animator.SetValue(_movementSpeedParameter, _movementSpeed);
-      _animator.SetValue(_movementDirectionParameter, _movementDirection);
+      _animator.SetValue(_parameters.MovementSpeed, _movementSpeed);
+      _animator.SetValue(_parameters.MovementDirection, _movementDirection);
     }
 
     public void OnInteract(InputAction.CallbackContext context) =>
-      _animator.SetTrigger(_shouldInteractParameter);
+      _animator.SetTrigger(_parameters.ShouldInteract);
 
     public void OnKick(InputAction.CallbackContext context)
     {
       if (!context.started) return;
-      _animator.SetTrigger(_shouldKickParameter);
+      _animator.SetTrigger(_parameters.ShouldKick);
     }
 
     public void OnSpit(InputAction.CallbackContext context)
     {
       if (!context.started) return;
-      _animator.SetTrigger(_shouldSpitParameter);
+      _animator.SetTrigger(_parameters.ShouldSpit);
     }
 
     public void OnAim(InputAction.CallbackContext context)
@@ -147,5 +143,25 @@ namespace TheGame.Characters.Ladybug
     public void OnMouseAim(InputAction.CallbackContext context)
     {
     }
+
+    [Serializable, HideLabel, FoldoutGroup("Animator Parameters", true)]
+    [ValidateInput(nameof(ValidateParameters), "All parameters should be assigned.")]
+    private struct AnimatorParameters
+    {
+      public IntAnimatorParameter MovementDirection;
+      public FloatAnimatorParameter MovementSpeed;
+      public TriggerAnimatorParameter ShouldJump;
+      public TriggerAnimatorParameter ShouldInteract;
+      public TriggerAnimatorParameter ShouldSpit;
+      public TriggerAnimatorParameter ShouldKick;
+    }
+
+    private bool ValidateParameters() =>
+      _parameters.MovementDirection != null &&
+      _parameters.MovementSpeed != null &&
+      _parameters.ShouldJump != null &&
+      _parameters.ShouldInteract != null &&
+      _parameters.ShouldSpit != null &&
+      _parameters.ShouldKick != null;
   }
 }

@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace TheGame.Core.Animations.Parameters
 {
+  [AssetSelector]
   public abstract class AnimatorParameter : ScriptableObject
   {
     [SerializeField] private string _name;

@@ -1,4 +1,5 @@
 using System.Collections;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,7 +12,7 @@ namespace TheGame.Core.Common
     [SerializeField] private UnityEvent _onBeforeTeleportation;
     [SerializeField] private UnityEvent _onAfterTeleportation;
 
-    [ContextMenu("Interact")]
+    [Button, DisableInEditorMode]
     public void Interact()
     {
       StartCoroutine(DoEnter());

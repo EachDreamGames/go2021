@@ -1,11 +1,12 @@
-﻿using TheGame.Core.Animations.Attributes;
+﻿using Sirenix.OdinInspector;
+using TheGame.Core.Animations.Attributes;
 using UnityEngine;
 
 namespace TheGame.Management.GameController
 {
   public class GameScreenController : AnimatorStateAttributeBehaviour
   {
-    [SerializeField] private GameObject _prefab;
+    [SerializeField, AssetsOnly] private GameObject _prefab;
     [SerializeField] private bool _mustUnload;
 
     private GameObject _gameScreen;

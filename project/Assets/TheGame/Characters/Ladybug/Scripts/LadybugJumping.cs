@@ -1,4 +1,5 @@
 ﻿using System;
+using Sirenix.OdinInspector;
 using TheGame.Core.Animations.Attributes;
 using UnityEngine;
 
@@ -42,7 +43,7 @@ namespace TheGame.Characters.Ladybug
       return Mathf.Sqrt(-_height * 2 / acceleration);
     }
 
-    [Serializable]
+    [Serializable, EnumToggleButtons]
     private enum ImpulseMethod
     {
       OnStateActivate,

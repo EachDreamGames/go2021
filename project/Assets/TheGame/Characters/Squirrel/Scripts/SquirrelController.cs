@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace TheGame.Characters.Squirrel.Scripts
@@ -9,9 +10,15 @@ namespace TheGame.Characters.Squirrel.Scripts
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private float _minSpeed;
     [SerializeField] private float _maxSpeed;
-    [SerializeField] private float _minSpeedDistance;
+
     [SerializeField] private float _maxSpeedDistance;
-    [SerializeField] private float _criticalDistance;
+
+    [SerializeField, PropertyRange(0, "$" + nameof(_maxSpeedDistance))]
+    private float _minSpeedDistance;
+
+    [SerializeField, PropertyRange(0, "$" + nameof(_minSpeedDistance))]
+    private float _criticalDistance;
+
     [SerializeField] private UnityEvent _onOvertook;
 
     private void FixedUpdate()

@@ -1,10 +1,13 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace TheGame.Core.Animations.Attributes
 {
   public abstract class AnimatorStateAttributeBehaviour : MonoBehaviour
   {
-    [SerializeField] private Animator _animator;
+    [SerializeField, CustomContextMenu("Set from self or parent", nameof(SetAnimatorFromSelfOrParent))]
+    private Animator _animator;
+
     [SerializeField] private AnimatorStateAttribute _stateAttribute;
 
     private AnimatorExtensions.Attributes _attributes;
@@ -12,7 +15,7 @@ namespace TheGame.Core.Animations.Attributes
 
     protected Animator Animator => _animator;
 
-    public bool IsStateActive
+    protected bool IsStateActive
     {
       get => _isStateActive;
       private set
@@ -65,5 +68,8 @@ namespace TheGame.Core.Animations.Attributes
       if (attribute == _stateAttribute)
         IsStateActive = isActive;
     }
+
+    private void SetAnimatorFromSelfOrParent() =>
+      _animator = GetComponentInParent<Animator>();
   }
 }
