@@ -132,7 +132,7 @@ namespace TheGame.Characters.Ladybug
 
     public void OnSpit(InputAction.CallbackContext context)
     {
-      if (!context.started) return;
+      if (!context.started && !context.canceled) return;
       _animator.SetTrigger(_parameters.ShouldSpit);
     }
 
