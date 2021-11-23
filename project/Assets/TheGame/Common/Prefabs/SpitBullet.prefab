@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.53004664, g: 0.8207547, b: 0.36779103, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -165,3 +165,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifeTime: 2.5
+  _point: {fileID: 8834370068687333459}
+  _splashFx: {fileID: 4640497755943696727, guid: 562d6f3b2a7d085458b7e957e09a77b5, type: 3}
+  _radius: 0.5
