@@ -173,6 +173,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1519729347, guid: ec08ca793b1e84d458ea05301fd809bd, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 6323088321360393897}
     - target: {fileID: 3977671558602244226, guid: ec08ca793b1e84d458ea05301fd809bd, type: 3}
       propertyPath: m_Name
       value: Ladybug
@@ -4922,16 +4926,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6323088322333668879, guid: 8fe888405f64c9c458e408daee476c98, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.6731436
+      value: 3.4917934
       objectReference: {fileID: 0}
     - target: {fileID: 6323088322333668879, guid: 8fe888405f64c9c458e408daee476c98, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 30.452806
+      value: -1.420416
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fe888405f64c9c458e408daee476c98, type: 3}
 --- !u!81 &6323088321360393896 stripped
 AudioListener:
   m_CorrespondingSourceObject: {fileID: 6323088322333668865, guid: 8fe888405f64c9c458e408daee476c98, type: 3}
+  m_PrefabInstance: {fileID: 6323088321360393895}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &6323088321360393897 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6323088322333668864, guid: 8fe888405f64c9c458e408daee476c98, type: 3}
   m_PrefabInstance: {fileID: 6323088321360393895}
   m_PrefabAsset: {fileID: 0}

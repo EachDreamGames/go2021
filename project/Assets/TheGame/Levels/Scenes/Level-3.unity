@@ -267,6 +267,10 @@ PrefabInstance:
       propertyPath: _onTimer.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1948975495}
+    - target: {fileID: 1519729347, guid: ec08ca793b1e84d458ea05301fd809bd, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 1109087588}
     - target: {fileID: 3977671558602244226, guid: ec08ca793b1e84d458ea05301fd809bd, type: 3}
       propertyPath: m_Name
       value: Ladybug
@@ -421,6 +425,11 @@ PrefabInstance:
 --- !u!81 &1109087587 stripped
 AudioListener:
   m_CorrespondingSourceObject: {fileID: 6323088322333668865, guid: 8fe888405f64c9c458e408daee476c98, type: 3}
+  m_PrefabInstance: {fileID: 1109087586}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1109087588 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6323088322333668864, guid: 8fe888405f64c9c458e408daee476c98, type: 3}
   m_PrefabInstance: {fileID: 1109087586}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1321522048

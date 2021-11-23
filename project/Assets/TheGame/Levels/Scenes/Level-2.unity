@@ -374,6 +374,11 @@ AudioListener:
   m_CorrespondingSourceObject: {fileID: 6323088322333668865, guid: 8fe888405f64c9c458e408daee476c98, type: 3}
   m_PrefabInstance: {fileID: 61867713}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &61867715 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6323088322333668864, guid: 8fe888405f64c9c458e408daee476c98, type: 3}
+  m_PrefabInstance: {fileID: 61867713}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &146783793 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6512594828764861459, guid: b8a5cde6d4cd992479e056c440f9a0c4, type: 3}
@@ -386,6 +391,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1519729347, guid: ec08ca793b1e84d458ea05301fd809bd, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 61867715}
     - target: {fileID: 3977671558602244226, guid: ec08ca793b1e84d458ea05301fd809bd, type: 3}
       propertyPath: m_Name
       value: Ladybug
@@ -21532,7 +21541,7 @@ Transform:
   - {fileID: 2009480811}
   - {fileID: 620212525}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &992011211
 SortingGroup:
