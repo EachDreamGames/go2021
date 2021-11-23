@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 8834370068687333458}
   - component: {fileID: 8834370068687333469}
   - component: {fileID: 8834370068687333468}
-  - component: {fileID: 409799498158565818}
+  - component: {fileID: 8170345618971363141}
+  - component: {fileID: 3932822722783235670}
   m_Layer: 15
   m_Name: SpitBullet
   m_TagString: Untagged
@@ -122,7 +123,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &409799498158565818
+--- !u!114 &8170345618971363141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,7 +132,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 8834370068687333471}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7f77ae03fdb4d449cc1dfb7e8c0f27a, type: 3}
+  m_Script: {fileID: 11500000, guid: d8775ad4fec74f0ca4eed386ab153c40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _body: {fileID: 8834370068687333468}
+  _speed: 20
+  _onReach:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3932822722783235670}
+        m_TargetAssemblyTypeName: TheGame.Common.ProjectileCore, Assembly-CSharp
+        m_MethodName: Splash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3932822722783235670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8834370068687333471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 230647cb60b04cd5b77bb1e834860157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lifeTime: 2.5
