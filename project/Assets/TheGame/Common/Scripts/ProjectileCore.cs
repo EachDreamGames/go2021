@@ -46,7 +46,8 @@ namespace TheGame.Common
     public void Hit()
     {
       _shouldDetonate = false;
-      Instantiate(_hitFx, _point.position, Quaternion.identity);
+      if (_hitFx)
+        Instantiate(_hitFx, _point.position, Quaternion.identity);
       UpdateTargets();
       foreach (ProjectileTarget splashTarget in _targets)
         splashTarget.GetHit();
