@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 8834370068687333468}
   - component: {fileID: 8170345618971363141}
   - component: {fileID: 3932822722783235670}
-  m_Layer: 15
-  m_Name: SpitBullet
+  m_Layer: 19
+  m_Name: Player-SpitBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

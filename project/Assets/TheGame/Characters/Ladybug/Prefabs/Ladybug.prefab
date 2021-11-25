@@ -690,7 +690,7 @@ MonoBehaviour:
   _isGroundedParam: {fileID: 11400000, guid: 785804d8584881b409d5702bc558599e, type: 2}
   _groundLayers:
     serializedVersion: 2
-    m_Bits: 33280
+    m_Bits: 34304
   _collider: {fileID: 8509251096045545738}
   _xPadding: 0.1
 --- !u!1 &2043742629
