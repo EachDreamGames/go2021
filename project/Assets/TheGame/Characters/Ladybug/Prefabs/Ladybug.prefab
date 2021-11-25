@@ -486,6 +486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1416525986}
   - component: {fileID: 1416525987}
+  - component: {fileID: 1764629018353760535}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -539,6 +540,20 @@ MonoBehaviour:
     ShouldKick: {fileID: 11400000, guid: 066164ead65512248abf77101d3939aa, type: 2}
   _walkSpeed: 2
   _runSpeed: 4
+--- !u!114 &1764629018353760535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416525985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 930cd04973984782b5b5c3a5016e0040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _container: {fileID: 11400000, guid: 393e5b7a05b499846ba3e7b3083aaa3f, type: 2}
+  _target: {fileID: 3977671558602244226}
 --- !u!1 &1475655849
 GameObject:
   m_ObjectHideFlags: 0
