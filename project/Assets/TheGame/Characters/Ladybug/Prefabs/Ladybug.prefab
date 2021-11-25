@@ -253,7 +253,6 @@ GameObject:
   - component: {fileID: 625902192}
   - component: {fileID: 625902193}
   - component: {fileID: 1519729346}
-  - component: {fileID: 1519729347}
   m_Layer: 0
   m_Name: Spit
   m_TagString: Untagged
@@ -291,7 +290,7 @@ MonoBehaviour:
   _animator: {fileID: 1697037731}
   _stateAttribute: {fileID: 11400000, guid: 208a9c8c774f4354c81d1b477028faff, type: 2}
   _isSpitPreparedParameter: {fileID: 11400000, guid: f98aabf0750bd2f42b109be40fb38a11, type: 2}
-  _mouseHelper: {fileID: 1519729347}
+  _mouseHelper: {fileID: 11400000, guid: a3bd9335ad7061944b89d99965906c37, type: 2}
   _launchAnimationsEvents: {fileID: 3864564344971299480}
   _projectilePrefab: {fileID: 8170345618971363141, guid: d891573c41228f84c92d6b96724950ab, type: 3}
   _point: {fileID: 384884715}
@@ -308,21 +307,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 054154034b2d40ef822e64ab51c6446e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mouseHelper: {fileID: 1519729347}
+  _mouseHelper: {fileID: 11400000, guid: a3bd9335ad7061944b89d99965906c37, type: 2}
   _radius: 1
---- !u!114 &1519729347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 625902191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17b1217cf42241ef932d1175db5e84a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _camera: {fileID: 0}
 --- !u!1 &946767731
 GameObject:
   m_ObjectHideFlags: 0
