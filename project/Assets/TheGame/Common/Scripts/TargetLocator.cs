@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TheGame.Characters.Ladybug
+namespace TheGame.Common
 {
   public abstract class TargetLocator : MonoBehaviour
   {

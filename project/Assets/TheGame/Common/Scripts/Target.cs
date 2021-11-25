@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TheGame.Characters.Ladybug
+namespace TheGame.Common
 {
   [RequireComponent(typeof(Collider2D))]
   public class Target : MonoBehaviour
