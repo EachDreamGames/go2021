@@ -7,16 +7,26 @@ namespace TheGame.Common
 {
   public class ProjectileCore : MonoBehaviour
   {
-    [SerializeField, SuffixLabel("s")] private float _lifeTime;
+    [SerializeField, SuffixLabel("s"), MinValue(0)]
+    private float _lifeTime;
+
+    [SerializeField, EnableIf(nameof(IsLifeTimeDefined))]
+    private bool _detonateAfterLifeTimeExpired;
+
     [SerializeField] private Transform _point;
-    [SerializeField] private GameObject _splashFx;
+    [SerializeField] private GameObject _hitFx;
     [SerializeField] private float _radius;
 
     private readonly Collider2D[] _overlappedColliders = new Collider2D[10];
-    private readonly List<SplashTarget> _splashTargets = new List<SplashTarget>();
+    private readonly List<ProjectileTarget> _targets = new List<ProjectileTarget>();
+    private bool IsLifeTimeDefined => _lifeTime > float.Epsilon;
+    private bool _shouldDetonate;
 
-    private void Start() =>
-      StartCoroutine(SplashAfterLifeTimeExpired());
+    private void Start()
+    {
+      _shouldDetonate = IsLifeTimeDefined && _detonateAfterLifeTimeExpired;
+      StartCoroutine(DestroyAfterLifeTimeExpired());
+    }
 
     private void OnDrawGizmosSelected()
     {
@@ -24,25 +34,27 @@ namespace TheGame.Common
       Gizmos.DrawSphere(_point.position, _radius);
     }
 
-    private IEnumerator SplashAfterLifeTimeExpired()
+    private IEnumerator DestroyAfterLifeTimeExpired()
     {
       yield return new WaitForSeconds(_lifeTime);
-      Splash();
-    }
-
-    public void Splash()
-    {
       Destroy(gameObject);
 
-      Instantiate(_splashFx, _point.position, Quaternion.identity);
-      UpdateSplashTargets();
-      foreach (SplashTarget splashTarget in _splashTargets) 
-        splashTarget.Cover();
+      if (_shouldDetonate)
+        Hit();
     }
 
-    private void UpdateSplashTargets()
+    public void Hit()
     {
-      _splashTargets.Clear();
+      _shouldDetonate = false;
+      Instantiate(_hitFx, _point.position, Quaternion.identity);
+      UpdateTargets();
+      foreach (ProjectileTarget splashTarget in _targets)
+        splashTarget.GetHit();
+    }
+
+    private void UpdateTargets()
+    {
+      _targets.Clear();
 
       int overlapsCount = Physics2D.OverlapCircleNonAlloc(_point.position, _radius, _overlappedColliders);
       if (overlapsCount == 0) return;
@@ -50,9 +62,9 @@ namespace TheGame.Common
       for (int index = 0; index < overlapsCount; index++)
       {
         Collider2D overlappedCollider = _overlappedColliders[index];
-        if (!overlappedCollider.TryGetComponent(out SplashTarget target)) continue;
+        if (!overlappedCollider.TryGetComponent(out ProjectileTarget target)) continue;
 
-        _splashTargets.Add(target);
+        _targets.Add(target);
       }
     }
   }

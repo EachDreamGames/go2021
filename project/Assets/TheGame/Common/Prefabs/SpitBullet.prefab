@@ -137,12 +137,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _body: {fileID: 8834370068687333468}
   _speed: 20
+  _ricochetBounceAngle: 45
   _onReach:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3932822722783235670}
         m_TargetAssemblyTypeName: TheGame.Common.ProjectileCore, Assembly-CSharp
-        m_MethodName: Splash
+        m_MethodName: Hit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -165,6 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifeTime: 2.5
+  _detonateAfterLifeTimeExpired: 1
   _point: {fileID: 8834370068687333459}
-  _splashFx: {fileID: 4640497755943696727, guid: 562d6f3b2a7d085458b7e957e09a77b5, type: 3}
+  _hitFx: {fileID: 4640497755943696727, guid: 562d6f3b2a7d085458b7e957e09a77b5, type: 3}
   _radius: 0.5

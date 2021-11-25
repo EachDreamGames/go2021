@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,14 +8,16 @@ namespace TheGame.Common
   {
     [SerializeField] private Rigidbody2D _body;
     [SerializeField] private float _speed;
+    [SerializeField, PropertyRange(0, 90), SuffixLabel("°")] private float _ricochetBounceAngle;
     [SerializeField] private UnityEvent _onReach;
 
     private Transform _targetTransform;
     private Vector2 _targetPosition;
     private bool _isFollowing;
+    private bool _isLaunched;
 
     private void Start() =>
-      _body.simulated = false;
+      _body.simulated = _isLaunched;
 
     private void FixedUpdate()
     {
@@ -41,6 +44,7 @@ namespace TheGame.Common
 
     public void Launch(GameObject target)
     {
+      _isLaunched = true;
       _body.simulated = true;
       _targetTransform = target.transform;
       _targetPosition = Vector2.zero;
@@ -49,6 +53,7 @@ namespace TheGame.Common
 
     public void Launch(Vector2 position)
     {
+      _isLaunched = true;
       _body.simulated = true;
       _targetPosition = position;
       _targetTransform = null;
@@ -63,7 +68,7 @@ namespace TheGame.Common
       {
         ContactPoint2D contact = collision.GetContact(i);
         float collisionAngle = 90 - Vector2.Angle(_body.velocity, contact.normal);
-        if (45 > collisionAngle || collisionAngle > 135) continue;
+        if (_ricochetBounceAngle > collisionAngle || collisionAngle > 180 - _ricochetBounceAngle) continue;
 
         _isFollowing = false;
         _onReach?.Invoke();
