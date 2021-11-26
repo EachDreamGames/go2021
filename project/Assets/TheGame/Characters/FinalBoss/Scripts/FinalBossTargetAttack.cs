@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace TheGame.Characters.FinalBoss.Scripts
 {
-  public class FinalBossAttack : AnimatorStateAttributeBehaviour
+  public class FinalBossTargetAttack : AnimatorStateAttributeBehaviour
   {
     [SerializeField] private TargetLocator _targetLocator;
     [SerializeField] private Transform _point;

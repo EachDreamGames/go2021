@@ -14,8 +14,11 @@ namespace TheGame.Characters.FinalBoss.Scripts
     protected override void OnStateActivate() =>
       StartCooling();
 
-    protected override void OnStateDeactivate() =>
+    protected override void OnStateDeactivate()
+    {
+      if (!isActiveAndEnabled) return;
       StartCoroutine(StopCooling());
+    }
 
     private void StartCooling() =>
       Animator.SetValue(_isAttackCoolingParameter, true);

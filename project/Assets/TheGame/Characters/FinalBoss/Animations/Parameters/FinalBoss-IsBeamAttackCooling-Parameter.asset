@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40f622b183931fa429ab695a033a535b, type: 3}
-  m_Name: FinalBoss-IsAttackCooling-Parameter
+  m_Name: FinalBoss-IsBeamAttackCooling-Parameter
   m_EditorClassIdentifier: 
-  _name: attack.isCooling
+  _name: beamAttack.isCooling
