@@ -47,7 +47,8 @@ namespace TheGame.Characters.FinalBoss.Scripts
     {
       if (_attackCoroutine != null)
         StopCoroutine(_attackCoroutine);
-      Destroy(_beamInstance.gameObject);
+      if (_beamInstance)
+        Destroy(_beamInstance.gameObject);
       FreeFinishPoints();
     }
 
