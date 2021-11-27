@@ -1,0 +1,17 @@
+{
+    "name": "TheGame.Core.Animations.Common",
+    "rootNamespace": "",
+    "references": [
+        "GUID:20b3aa900cf88144295e1c38e1cc194f",
+        "GUID:4a3865cf4d0f90f47bca6ce6486c3e55"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
