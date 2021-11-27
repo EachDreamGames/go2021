@@ -16,7 +16,7 @@ namespace TheGame.Core.Animations.Attributes
       public delegate void StateAttributeChangedEvent(AnimatorStateAttribute attribute, bool isActive);
 
       private readonly Dictionary<AnimatorStateAttribute, int> _counters = new Dictionary<AnimatorStateAttribute, int>();
-      private readonly Dictionary<AnimatorStateAttribute, int> _prevCounters = new Dictionary<AnimatorStateAttribute, int>();
+      private readonly Dictionary<AnimatorStateAttribute, bool> _prevAttributesActivity = new Dictionary<AnimatorStateAttribute, bool>();
       private Animator _animator;
 
       public event StateAttributeChangedEvent OnChanged;
@@ -33,7 +33,10 @@ namespace TheGame.Core.Animations.Attributes
       public void Add(AnimatorStateAttribute attribute)
       {
         if (!_counters.ContainsKey(attribute))
+        {
           _counters[attribute] = 0;
+          _prevAttributesActivity[attribute] = false;
+        }
 
         _counters[attribute]++;
       }
@@ -60,17 +63,13 @@ namespace TheGame.Core.Animations.Attributes
           {
             AnimatorStateAttribute attribute = pair.Key;
             int count = pair.Value;
-            bool isCountNotZero = count > 0;
+            bool isAttributeActive = count > 0;
 
-            if (!_prevCounters.ContainsKey(attribute))
-              _prevCounters[attribute] = 0;
+            bool isAttributePrevActive = _prevAttributesActivity[attribute];
+            _prevAttributesActivity[attribute] = isAttributeActive;
 
-            bool isPrevCountNotZero = _prevCounters[attribute] > 0;
-            _prevCounters[attribute] = count;
-
-            if (isCountNotZero == isPrevCountNotZero) continue;
-
-            OnChanged?.Invoke(attribute, isCountNotZero);
+            if (isAttributeActive == isAttributePrevActive) continue;
+            OnChanged?.Invoke(attribute, isAttributeActive);
           }
         }
       }
