@@ -7,6 +7,6 @@ namespace TheGame.Core.Animations.Layers
   {
     [SerializeField] private int _index;
 
-    protected internal int Index => _index;
+    public int Index => _index;
   }
 }
