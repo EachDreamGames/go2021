@@ -802,6 +802,8 @@ GameObject:
   - component: {fileID: 1697037731}
   - component: {fileID: 1888769787}
   - component: {fileID: 3864564344971299480}
+  - component: {fileID: 1817720796}
+  - component: {fileID: 1817720797}
   m_Layer: 8
   m_Name: Ladybug
   m_TagString: Untagged
@@ -955,3 +957,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b90276e6e7d1474babeaea8b23666e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1817720796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3977671558602244226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de83267279449ce81b7a72c04fcd950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onGetImpact:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1817720797}
+        m_TargetAssemblyTypeName: TheGame.Characters.Ladybug.Health, Assembly-CSharp
+        m_MethodName: Decrease
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1817720797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3977671558602244226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf34279e9a8f4275b2b0849d5a1327ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxValue: 10
+  _currentValue: 10
+  _onModified:
+    m_PersistentCalls:
+      m_Calls: []

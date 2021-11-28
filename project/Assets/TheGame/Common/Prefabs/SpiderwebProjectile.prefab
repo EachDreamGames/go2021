@@ -173,3 +173,4 @@ MonoBehaviour:
     m_Bits: 525568
   _hitFx: {fileID: 0}
   _radius: 0.5
+  _impactStrength: 2
