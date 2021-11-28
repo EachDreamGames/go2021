@@ -168,5 +168,8 @@ MonoBehaviour:
   _lifeTime: 2.5
   _detonateAfterLifeTimeExpired: 1
   _point: {fileID: 8834370068687333459}
+  _targetLayers:
+    serializedVersion: 2
+    m_Bits: 950272
   _hitFx: {fileID: 4640497755943696727, guid: 562d6f3b2a7d085458b7e957e09a77b5, type: 3}
   _radius: 0.5

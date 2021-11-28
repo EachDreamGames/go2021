@@ -14,6 +14,7 @@ namespace TheGame.Common
     private bool _detonateAfterLifeTimeExpired;
 
     [SerializeField] private Transform _point;
+    [SerializeField] private LayerMask _targetLayers;
     [SerializeField] private GameObject _hitFx;
     [SerializeField] private float _radius;
 
@@ -57,7 +58,7 @@ namespace TheGame.Common
     {
       _targets.Clear();
 
-      int overlapsCount = Physics2D.OverlapCircleNonAlloc(_point.position, _radius, _overlappedColliders);
+      int overlapsCount = Physics2D.OverlapCircleNonAlloc(_point.position, _radius, _overlappedColliders, _targetLayers);
       if (overlapsCount == 0) return;
 
       for (int index = 0; index < overlapsCount; index++)
