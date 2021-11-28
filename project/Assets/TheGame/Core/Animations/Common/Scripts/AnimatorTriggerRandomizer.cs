@@ -71,13 +71,13 @@ namespace TheGame.Core.Animations.Common
 
     private class EntityWeightNormalizer
     {
-      private readonly float _weightsSum;
+      private readonly float _scale;
 
-      public EntityWeightNormalizer(IEnumerable<Entity> entities) =>
-        _weightsSum = entities.Sum(entity => entity.Weight);
+      public EntityWeightNormalizer(IEnumerable<Entity> entities) => 
+        _scale = 1 / entities.Max(entity => entity.Weight);
 
       public float GetNormalizedWeight(Entity entity) =>
-        entity.Weight / _weightsSum;
+        entity.Weight * _scale;
     }
 
     [Serializable]
