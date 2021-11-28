@@ -17,6 +17,7 @@ namespace TheGame.Common
     [SerializeField] private LayerMask _targetLayers;
     [SerializeField] private GameObject _hitFx;
     [SerializeField] private float _radius;
+    [SerializeField] private int _impactStrength;
 
     private readonly Collider2D[] _overlappedColliders = new Collider2D[10];
     private readonly List<ProjectileTarget> _targets = new List<ProjectileTarget>();
@@ -51,7 +52,7 @@ namespace TheGame.Common
         Instantiate(_hitFx, _point.position, Quaternion.identity);
       UpdateTargets();
       foreach (ProjectileTarget splashTarget in _targets)
-        splashTarget.GetHit();
+        splashTarget.GetImpact(_impactStrength);
     }
 
     private void UpdateTargets()

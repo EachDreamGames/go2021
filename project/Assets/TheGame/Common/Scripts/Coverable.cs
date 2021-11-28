@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace TheGame.Common
 {
-  public class SplashProjectileTarget : ProjectileTarget
+  public class Coverable : MonoBehaviour
   {
     [SerializeField] private GameObject _coveredPrefab;
 
-    public override void GetHit()
+    public void Cover()
     {
       Instantiate(_coveredPrefab, transform.position, quaternion.identity);
       Destroy(gameObject);

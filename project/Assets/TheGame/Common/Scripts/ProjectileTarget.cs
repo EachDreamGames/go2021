@@ -1,9 +1,19 @@
+﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace TheGame.Common
 {
-  public abstract class ProjectileTarget : MonoBehaviour
+  public class ProjectileTarget : MonoBehaviour
   {
-    public abstract void GetHit();
+    [SerializeField] private IntUnityEvent _onGetImpact;
+
+    public void GetImpact(int strength) =>
+      _onGetImpact?.Invoke(strength);
+
+    [Serializable]
+    private class IntUnityEvent : UnityEvent<int>
+    {
+    }
   }
 }
