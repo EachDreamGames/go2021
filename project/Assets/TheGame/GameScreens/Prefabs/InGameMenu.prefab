@@ -115,5 +115,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Continue
       objectReference: {fileID: 0}
+    - target: {fileID: 7906705379013521159, guid: d58ecb23fc04bcc478e268b9de65e9e7, type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 9344823
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d58ecb23fc04bcc478e268b9de65e9e7, type: 3}
