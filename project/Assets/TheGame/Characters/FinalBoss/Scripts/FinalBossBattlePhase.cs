@@ -13,13 +13,13 @@ namespace TheGame.Characters.FinalBoss.Scripts
 
     protected override void OnStateActivate()
     {
-      Animator.SetLayerWeight(_battleLayer, 1);
+      // Animator.SetLayerWeight(_battleLayer, 1);
       Animator.SetValue(_isBattlePhaseNumberParameter, _battleLayer.Index);
     }
 
     protected override void OnStateDeactivate()
     {
-      Animator.SetLayerWeight(_battleLayer, 0);
+      // Animator.SetLayerWeight(_battleLayer, 0);
       Animator.SetValue(_isBattlePhaseNumberParameter, _battleLayer.Index);
     }
   }
