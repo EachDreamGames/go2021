@@ -67,6 +67,8 @@ namespace TheGame.Management.GameController
       }
     }
 
+    public void FinishGame() => _gameActions.Finish();
+
     private enum LevelState
     {
       None,

@@ -32,5 +32,7 @@ namespace TheGame.Management.GameController
 
     public void RestartCurrentLevel() =>
       _gameController.StartLevel(_gameController.CurrentLevel);
+
+    public void Finish() => _gameController.Finish();
   }
 }

@@ -60,6 +60,8 @@ namespace TheGame.Management.GameController
       _animator.SetTrigger(_isSpecificLevelLoadingParameter);
     }
 
+    public void Finish() => _animator.SetTrigger(_shouldExitGameParameter);
+
     public void OnAnyKey(InputAction.CallbackContext context)
     {
       switch (context.phase)

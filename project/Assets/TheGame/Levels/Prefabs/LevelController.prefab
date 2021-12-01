@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 3181049126085337706}
   - component: {fileID: 3181049126085337705}
   - component: {fileID: 3181049127793034442}
+  - component: {fileID: 365497341672474335}
   m_Layer: 0
   m_Name: LevelController
   m_TagString: Untagged
@@ -114,6 +115,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioListener: {fileID: 0}
   _gameActions: {fileID: 3181049127793034442}
+  _onNextLevel:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3181049127793034442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,3 +131,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameController: {fileID: 0}
+--- !u!114 &365497341672474335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3181049126085337704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e530da10c64547bc9eacf654ccafcae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelController: {fileID: 3181049126085337705}
+  _staticContainer: {fileID: 11400000, guid: 56621c9541c8fa94eb179ac3dd464be6, type: 2}
