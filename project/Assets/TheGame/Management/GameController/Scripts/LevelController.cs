@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using TheGame.Core.Common;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 namespace TheGame.Management.GameController
 {
@@ -10,6 +10,7 @@ namespace TheGame.Management.GameController
   {
     [SerializeField] private AudioListener _audioListener;
     [SerializeField] private GameActions _gameActions;
+    [SerializeField] private UnityEvent _onNextLevel;
 
     private LevelState _state;
 
@@ -60,6 +61,7 @@ namespace TheGame.Management.GameController
 
       IEnumerator DoStart()
       {
+        _onNextLevel?.Invoke(); 
         yield return Blackout.Show();
         _gameActions.StartLevel(description);
       }
