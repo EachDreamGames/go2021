@@ -251,6 +251,10 @@ PrefabInstance:
       propertyPath: _audioListener
       value: 
       objectReference: {fileID: 139760230}
+    - target: {fileID: 2116118619, guid: 98bfeab9b43e46e4cb589c780065c4fd, type: 3}
+      propertyPath: _prefab
+      value: 
+      objectReference: {fileID: 6856274358836253230, guid: df83c4bdb5078484ea5f4970bcf931f8, type: 3}
     - target: {fileID: 1146827222162820124, guid: 98bfeab9b43e46e4cb589c780065c4fd, type: 3}
       propertyPath: m_Name
       value: GameController
